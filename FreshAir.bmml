@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="1287" measuredH="854" mockupW="1221" mockupH="790">
+<mockup version="1.0" skin="sketch" measuredW="2000" measuredH="854" mockupW="1934" mockupH="844">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="56" y="54" w="774" h="790" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -129,39 +129,158 @@
         <text>Last%20Playing%0A*Track%20Artist*%0ATrack%20Artist%0ATrack%20Artist%0ATrack%20Artist%0ATrack%20Artist</text>
       </controlProperties>
     </control>
-    <control controlID="28" controlTypeID="com.balsamiq.mockups::Image" x="871" y="142" w="123" h="126" measuredW="77" measuredH="79" zOrder="19" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text/>
-      </controlProperties>
-    </control>
-    <control controlID="29" controlTypeID="com.balsamiq.mockups::Arrow" x="988" y="303" w="89" h="221" measuredW="150" measuredH="100" zOrder="20" locked="false" isInGroup="-1">
+    <control controlID="29" controlTypeID="com.balsamiq.mockups::Arrow" x="988" y="303" w="89" h="221" measuredW="150" measuredH="100" zOrder="19" locked="false" isInGroup="-1">
       <controlProperties>
         <direction>bottom</direction>
         <leftArrow>false</leftArrow>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="30" controlTypeID="com.balsamiq.mockups::StickyNote" x="939" y="510" w="137" h="81" measuredW="109" measuredH="123" zOrder="21" locked="false" isInGroup="-1">
+    <control controlID="30" controlTypeID="com.balsamiq.mockups::StickyNote" x="939" y="510" w="137" h="81" measuredW="109" measuredH="123" zOrder="20" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Live%20webcam</text>
       </controlProperties>
     </control>
-    <control controlID="31" controlTypeID="com.balsamiq.mockups::Arrow" x="159" y="429" w="728" h="242" measuredW="150" measuredH="100" zOrder="22" locked="false" isInGroup="-1">
+    <control controlID="31" controlTypeID="com.balsamiq.mockups::Arrow" x="159" y="429" w="728" h="242" measuredW="150" measuredH="100" zOrder="21" locked="false" isInGroup="-1">
       <controlProperties>
         <rightArrow>false</rightArrow>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="32" controlTypeID="com.balsamiq.mockups::Arrow" x="881" y="376" w="59" h="293" measuredW="150" measuredH="100" zOrder="23" locked="false" isInGroup="-1">
+    <control controlID="32" controlTypeID="com.balsamiq.mockups::Arrow" x="881" y="376" w="59" h="293" measuredW="150" measuredH="100" zOrder="22" locked="false" isInGroup="-1">
       <controlProperties>
         <direction>bottom</direction>
         <leftArrow>false</leftArrow>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="33" controlTypeID="com.balsamiq.mockups::StickyNote" x="848" y="661" w="244" h="104" measuredW="109" measuredH="123" zOrder="24" locked="false" isInGroup="-1">
+    <control controlID="33" controlTypeID="com.balsamiq.mockups::StickyNote" x="848" y="661" w="244" h="104" measuredW="109" measuredH="123" zOrder="23" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Live%20track/artist%0A%3F%20Link%20to%20amazon%20to%20make%20money%20%3F</text>
+      </controlProperties>
+    </control>
+    <control controlID="34" controlTypeID="com.balsamiq.mockups::Image" x="871" y="142" w="123" h="126" measuredW="149" measuredH="149" zOrder="24" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="35" controlTypeID="__group__" x="1380" y="54" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="25" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="282" h="510" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="35"/>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::PointyButton" x="22" y="434" w="37" h="-1" measuredW="37" measuredH="27" zOrder="1" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>HomeIcon%7Cxsmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::PointyButton" x="69" y="436" w="43" h="-1" measuredW="43" measuredH="27" zOrder="2" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <size>9</size>
+            <text>menu</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="31" y="468" w="62" h="-1" measuredW="37" measuredH="27" zOrder="3" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>TelephoneIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::PointyButton" x="174" y="434" w="37" h="-1" measuredW="37" measuredH="27" zOrder="4" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>SearchIcon%7Cxsmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::PointyButton" x="221" y="436" w="37" h="-1" measuredW="37" measuredH="27" zOrder="5" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>JumpBackIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::PointyButton" x="183" y="468" w="62" h="-1" measuredW="37" measuredH="27" zOrder="6" locked="false" isInGroup="35">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>BackSpaceIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="1429" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="1481" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Now%20playing</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="1497" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Stop</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Paragraph" x="1447" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>false</bold>
+        <color>0</color>
+        <text>Bob%20The%20Builder%0ABob%20and%20his%20Gang</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::iPhone" x="1708" y="54" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="30" locked="false" isInGroup="-1"/>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="1757" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <filter>true</filter>
+        <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Label" x="1809" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="32" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Now%20playing</text>
+      </controlProperties>
+    </control>
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1825" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="33" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Stop</text>
+      </controlProperties>
+    </control>
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Paragraph" x="1775" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="34" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>false</bold>
+        <color>0</color>
+        <text>Bob%20The%20Builder%0ABob%20and%20his%20Gang</text>
+      </controlProperties>
+    </control>
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::StickyNote" x="1466" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="35" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Android</text>
+      </controlProperties>
+    </control>
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::StickyNote" x="1794" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="36" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Iphone</text>
       </controlProperties>
     </control>
   </controls>
