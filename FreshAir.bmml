@@ -222,24 +222,57 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="1429" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="26" locked="false" isInGroup="-1">
+    <control controlID="36" controlTypeID="com.balsamiq.mockups::Image" x="1429" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="27" locked="false" isInGroup="-1">
+      <controlProperties>
+        <borderStyle>none</borderStyle>
+        <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="1481" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="28" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <text>Now%20playing</text>
+      </controlProperties>
+    </control>
+    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="1497" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="29" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>16777215</color>
+        <text>Stop</text>
+      </controlProperties>
+    </control>
+    <control controlID="41" controlTypeID="com.balsamiq.mockups::Paragraph" x="1447" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="30" locked="false" isInGroup="-1">
+      <controlProperties>
+        <align>center</align>
+        <bold>false</bold>
+        <color>16777215</color>
+        <text>Bob%20The%20Builder%0ABob%20and%20his%20Gang</text>
+      </controlProperties>
+    </control>
+    <control controlID="42" controlTypeID="com.balsamiq.mockups::iPhone" x="1708" y="54" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="31" locked="false" isInGroup="-1">
+      <controlProperties>
+        <bgPattern>allWhite</bgPattern>
+        <orientation>portrait</orientation>
+      </controlProperties>
+    </control>
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="1757" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="32" locked="false" isInGroup="-1">
       <controlProperties>
         <filter>true</filter>
         <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="37" controlTypeID="com.balsamiq.mockups::Label" x="1481" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="27" locked="false" isInGroup="-1">
+    <control controlID="48" controlTypeID="com.balsamiq.mockups::Label" x="1809" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="33" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Now%20playing</text>
       </controlProperties>
     </control>
-    <control controlID="38" controlTypeID="com.balsamiq.mockups::Button" x="1497" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="28" locked="false" isInGroup="-1">
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1825" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="34" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Stop</text>
       </controlProperties>
     </control>
-    <control controlID="41" controlTypeID="com.balsamiq.mockups::Paragraph" x="1447" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="29" locked="false" isInGroup="-1">
+    <control controlID="50" controlTypeID="com.balsamiq.mockups::Paragraph" x="1775" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="35" locked="false" isInGroup="-1">
       <controlProperties>
         <align>center</align>
         <bold>false</bold>
@@ -247,40 +280,19 @@
         <text>Bob%20The%20Builder%0ABob%20and%20his%20Gang</text>
       </controlProperties>
     </control>
-    <control controlID="42" controlTypeID="com.balsamiq.mockups::iPhone" x="1708" y="54" w="-1" h="-1" measuredW="282" measuredH="510" zOrder="30" locked="false" isInGroup="-1"/>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::Image" x="1757" y="165" w="183" h="192" measuredW="149" measuredH="149" zOrder="31" locked="false" isInGroup="-1">
-      <controlProperties>
-        <filter>true</filter>
-        <src>http%3A//www.freshair.org.uk/sites/default/files/freshair_logo.png</src>
-        <text/>
-      </controlProperties>
-    </control>
-    <control controlID="48" controlTypeID="com.balsamiq.mockups::Label" x="1809" y="351" w="-1" h="-1" measuredW="79" measuredH="25" zOrder="32" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Now%20playing</text>
-      </controlProperties>
-    </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1825" y="435" w="-1" h="-1" measuredW="53" measuredH="28" zOrder="33" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Stop</text>
-      </controlProperties>
-    </control>
-    <control controlID="50" controlTypeID="com.balsamiq.mockups::Paragraph" x="1775" y="378" w="147" h="46" measuredW="200" measuredH="140" zOrder="34" locked="false" isInGroup="-1">
-      <controlProperties>
-        <align>center</align>
-        <bold>false</bold>
-        <color>0</color>
-        <text>Bob%20The%20Builder%0ABob%20and%20his%20Gang</text>
-      </controlProperties>
-    </control>
-    <control controlID="51" controlTypeID="com.balsamiq.mockups::StickyNote" x="1466" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="35" locked="false" isInGroup="-1">
+    <control controlID="51" controlTypeID="com.balsamiq.mockups::StickyNote" x="1466" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="36" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Android</text>
       </controlProperties>
     </control>
-    <control controlID="52" controlTypeID="com.balsamiq.mockups::StickyNote" x="1794" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="36" locked="false" isInGroup="-1">
+    <control controlID="52" controlTypeID="com.balsamiq.mockups::StickyNote" x="1794" y="0" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="37" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Iphone</text>
+      </controlProperties>
+    </control>
+    <control controlID="53" controlTypeID="com.balsamiq.mockups::Canvas" x="1408" y="155" w="225" h="328" measuredW="100" measuredH="70" zOrder="26" locked="false" isInGroup="-1">
+      <controlProperties>
+        <color>0</color>
       </controlProperties>
     </control>
   </controls>
