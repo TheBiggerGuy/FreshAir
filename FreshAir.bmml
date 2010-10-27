@@ -1,4 +1,4 @@
-<mockup version="1.0" skin="sketch" measuredW="2000" measuredH="854" mockupW="1934" mockupH="844">
+<mockup version="1.0" skin="sketch" measuredW="2000" measuredH="1321" mockupW="1934" mockupH="1311">
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::BrowserWindow" x="56" y="54" w="774" h="790" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
@@ -293,6 +293,77 @@
     <control controlID="53" controlTypeID="com.balsamiq.mockups::Canvas" x="1408" y="155" w="225" h="328" measuredW="100" measuredH="70" zOrder="26" locked="false" isInGroup="-1">
       <controlProperties>
         <color>0</color>
+      </controlProperties>
+    </control>
+    <control controlID="54" controlTypeID="__group__" x="1380" y="574" w="421" h="737" measuredW="421" measuredH="737" zOrder="38" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="0" controlTypeID="com.balsamiq.mockups::iPhone" x="0" y="0" w="421" h="737" measuredW="282" measuredH="510" zOrder="0" locked="false" isInGroup="54">
+          <controlProperties>
+            <topBar>false</topBar>
+          </controlProperties>
+        </control>
+        <control controlID="1" controlTypeID="com.balsamiq.mockups::PointyButton" x="33" y="628" w="55" h="-1" measuredW="37" measuredH="27" zOrder="1" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>HomeIcon%7Cxsmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="2" controlTypeID="com.balsamiq.mockups::PointyButton" x="103" y="630" w="65" h="-1" measuredW="43" measuredH="27" zOrder="2" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <size>9</size>
+            <text>menu</text>
+          </controlProperties>
+        </control>
+        <control controlID="3" controlTypeID="com.balsamiq.mockups::PointyButton" x="46" y="677" w="93" h="-1" measuredW="37" measuredH="27" zOrder="3" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>TelephoneIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="4" controlTypeID="com.balsamiq.mockups::PointyButton" x="260" y="628" w="55" h="-1" measuredW="37" measuredH="27" zOrder="4" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>SearchIcon%7Cxsmall</icon>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="5" controlTypeID="com.balsamiq.mockups::PointyButton" x="330" y="630" w="55" h="-1" measuredW="37" measuredH="27" zOrder="5" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>JumpBackIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+        <control controlID="6" controlTypeID="com.balsamiq.mockups::PointyButton" x="273" y="677" w="93" h="-1" measuredW="37" measuredH="27" zOrder="6" locked="false" isInGroup="54">
+          <controlProperties>
+            <color>6710886</color>
+            <direction>center</direction>
+            <icon>BackSpaceIcon%7Cxsmall</icon>
+            <size>9</size>
+            <text/>
+          </controlProperties>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+    <control controlID="55" controlTypeID="com.balsamiq.mockups::Image" x="1431" y="703" w="-1" h="-1" measuredW="320" measuredH="480" zOrder="39" locked="false" isInGroup="-1">
+      <controlProperties>
+        <src>./device.png</src>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="56" controlTypeID="com.balsamiq.mockups::StickyNote" x="1618" y="580" w="-1" h="-1" measuredW="109" measuredH="123" zOrder="40" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Current%20Android</text>
       </controlProperties>
     </control>
   </controls>
