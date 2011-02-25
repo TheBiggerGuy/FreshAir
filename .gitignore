@@ -5,6 +5,11 @@ Android/Eclipse
 
 Android/Workspace/.metadata
 
+Android/Workspace/*/.classpath
+Android/Workspace/*/.project
+Android/Workspace/*/.settings
+Android/Workspace/*/gen
+Android/Workspace/*/bin
 
 *.*~
 
