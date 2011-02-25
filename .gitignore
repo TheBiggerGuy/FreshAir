@@ -10,6 +10,7 @@ Android/Workspace/*/.project
 Android/Workspace/*/.settings
 Android/Workspace/*/gen
 Android/Workspace/*/bin
+Android/keys
 
 *.*~
 

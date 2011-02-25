@@ -3,13 +3,11 @@ package uk.org.freshair.android;
 import java.io.IOException;
 import android.app.Activity;
 import android.media.MediaPlayer;
-import android.media.MediaPlayer.OnBufferingUpdateListener;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnInfoListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +16,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 public class FreshAirRadio extends Activity implements
-		OnBufferingUpdateListener, OnCompletionListener, OnErrorListener,
+		OnCompletionListener, OnErrorListener,
 		OnInfoListener, OnPreparedListener {
 
 	private static final String STREAM_URI = "http://129.215.16.20:3066";
@@ -33,10 +31,6 @@ public class FreshAirRadio extends Activity implements
 	private Activity rootActivity;
 
 	private boolean isPlaying = false;
-	private boolean isBuffering = false;
-
-	private int lastPosition = 0;
-	private long updateBufferRateLimit = 0;
 
 	/** Called when the activity is first created. */
 	@Override
@@ -82,8 +76,6 @@ public class FreshAirRadio extends Activity implements
 				if (mediaPlayer == null) {
 					mediaPlayer = new MediaPlayer();
 					mediaPlayer
-							.setOnBufferingUpdateListener((OnBufferingUpdateListener) rootActivity);
-					mediaPlayer
 							.setOnCompletionListener((OnCompletionListener) rootActivity);
 					mediaPlayer
 							.setOnErrorListener((OnErrorListener) rootActivity);
@@ -127,11 +119,6 @@ public class FreshAirRadio extends Activity implements
 				}
 			}
 		});
-
-		/*
-		Timer tick = new Timer("Buffering tick", false);
-		tick.scheduleAtFixedRate(new Tick(), 1 * 1000, 1 * 1000);
-		*/
 		
 	}
 
@@ -141,8 +128,6 @@ public class FreshAirRadio extends Activity implements
 		Log.v("FreshAir", "playStarted Update UI (Playing)");
 
 		mp.start();
-		//isPlaying = true;
-		lastPosition = 0;
 
 		text_info.setText("Playing ...");
 		progress_main.setVisibility(View.INVISIBLE);
@@ -178,53 +163,30 @@ public class FreshAirRadio extends Activity implements
 		return true; // return true to stop OS calling 'onCompletion'
 	}
 
-	public void onBufferingUpdate(MediaPlayer mp, int percent) {
-		if (!isPlaying || mp == null)
-			return;
-		
-		/*
-		if(SystemClock.uptimeMillis() > updateBufferRateLimit+500){
-			updateBufferRateLimit = SystemClock.uptimeMillis();
-		} else {
-			return;
-		}
-		
-		Log.v("FreshAir", "onBufferingUpdate (" + percent + "%) + ("
-				+ Integer.MAX_VALUE + ")(" + (percent & 0xFFFF)+1 + ")"); //0x8000
-		
-		int oldPos = lastPosition;
-		lastPosition = mp.getCurrentPosition();
-		if (lastPosition > oldPos) {
-			isBuffering = false;
-		} else {
-			if (isPlaying)
-				isBuffering = true;
-		}
-		
-		*/
-		
-		if (isBuffering) {
-			text_info.setText("Buffering ...");
-			progress_main.setVisibility(View.VISIBLE);
-			isPlaying = true; // ie you cant re set the data sourse without
-								// stoping first
-		} else {
-			text_info.setText("Playing ...");
-			progress_main.setVisibility(View.INVISIBLE);
-			isPlaying = true;
-		}
-		button_play.setChecked(true);
-	}
-
 	public boolean onInfo(MediaPlayer mp, int what, int extra) {
 		// TODO: currently the getMetadata method is not present
 		
 		Log.v("FreshAir", "onInfo (" + what + " - " + extra + ")");
 		
-		if(what == 701){
-			isBuffering = true;
-		} else if (what == 702){
-			isBuffering = false;
+		switch (what) {
+		case MediaPlayer.MEDIA_INFO_BUFFERING_START:			
+			text_info.setText("Buffering ...");
+			progress_main.setVisibility(View.VISIBLE);
+			isPlaying = true; // ie you cant re set the data sourse without
+								// stoping first
+			
+			button_play.setChecked(true);
+			break;
+		
+		case MediaPlayer.MEDIA_INFO_BUFFERING_END:			
+			text_info.setText("Playing ...");
+			progress_main.setVisibility(View.INVISIBLE);
+			isPlaying = true;
+			
+			button_play.setChecked(true);
+		
+		default:
+			break;
 		}
 		
 		return true; // return true to stop the OS calling 'onError'
