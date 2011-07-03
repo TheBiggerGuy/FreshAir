@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the drupalflow module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function drupalflow_uninstall() {
+  variable_del('drupalflow_string');
+}
