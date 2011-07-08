@@ -11,7 +11,7 @@
       <controlProperties>
         <borderStyle>none</borderStyle>
         <filter>true</filter>
-        <src>./FreshAirLogo.png</src>
+        <src>./assets/FreshAirLogo.png</src>
         <text/>
       </controlProperties>
     </control>

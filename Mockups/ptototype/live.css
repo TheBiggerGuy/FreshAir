@@ -1,0 +1,69 @@
+body, html {
+  height: 500px;
+  width: 400px;
+  
+  margin: 0px;
+  padding: 0px;
+  
+  color: #999;
+  text-align: center;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  /* background-image: url(background.png);
+  background-repeat: repeat-x;
+  background-position: left bottom;
+  background-attachment: fixed; */
+  background-color: #200F0C;
+}
+
+#content {
+  width: 300px;
+  height: 400px;
+  
+  border-radius: 25px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  
+  padding: 20px 20px 20px 20px;
+  color:#999;
+  background-color: #782E00;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.webcamimg { /* 4/3 */
+  width: 132px;
+  height: 99px;
+}
+
+#webcam1 {
+  float: left;
+  margin-left: 19px;
+}
+
+#webcam2 {
+  float: right;
+  margin-right: 19px;
+}
+
+#throbber1 {
+  position: relative;
+  left: -16px;
+  top: 82px;
+  float: left;
+  display: none;
+}
+
+#throbber2 {
+  position: relative;
+  left: 132px;
+  top: 82px;
+  float: right;
+  display: none;
+}
+
+a {
+    color: #999;
+}
