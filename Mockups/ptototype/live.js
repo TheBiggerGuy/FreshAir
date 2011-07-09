@@ -45,16 +45,19 @@ $(function() { // executed when $(document).ready()
       {
         console.info("jPlayer: play");
         state = STATE_PLAYING;
+        $("#control img").attr("src", "pause.svg").attr("alt", "pause");
       },
       pause: function ()
       {
         console.info("jPlayer: pause");
         state = STATE_STOPED;
+        $("#control img").attr("src", "play.svg").attr("alt", "play");
       },
       playing: function ()
       {
         console.info("jPlayer: pauseplaying");
         state = STATE_PLAYING;
+        $("#control img").attr("src", "pause.svg").attr("alt", "pause");
       },
       backgroundColor: "#782E00",
       errorAlerts: false,
@@ -72,16 +75,7 @@ $(function() { // executed when $(document).ready()
   
 });
 
-var deBounce = true;
-
 function playPause(eventObject) {
-  
-  if(deBounce){
-    deBounce = false;
-    return;
-  } else {
-    deBounce = true;
-  }
   
   switch (state)
   {
@@ -89,24 +83,18 @@ function playPause(eventObject) {
       console.info("playPau: play");
       if(player != null)
         player.jPlayer("play");
-      $("#control img").attr("src", "pause.svg").attr("alt", "pause");
-      state = STATE_PLAYING;
       break;
     
     case STATE_PAUSED:
       console.info("playPau: play");
       if(player != null)
         player.jPlayer("play");
-      $("#control img").attr("src", "pause.svg").attr("alt", "pause");
-      state = STATE_PLAYING;
       break;
     
     case STATE_PLAYING:
       console.info("playPau: pause");
       if(player != null)
         player.jPlayer("stop");
-      $("#control img").attr("src", "play.svg").attr("alt", "play");
-      state = STATE_PAUSED;
       break;
     
     default:
