@@ -2,6 +2,7 @@ package uk.org.freshair.android;
 
 import java.io.IOException;
 import android.app.Activity;
+import android.content.res.Configuration;
 import android.media.MediaPlayer;
 import android.media.MediaPlayer.OnCompletionListener;
 import android.media.MediaPlayer.OnErrorListener;
@@ -218,5 +219,23 @@ public class FreshAirRadio extends Activity implements
 		button_play.setChecked(false);
 		super.finish();
 	}
+	
+	/*
+	@Override
+	public void onConfigurationChanged(Configuration newConfig) {
+		super.onConfigurationChanged(newConfig);
+		
+		// Checks the orientation of the screen
+	    if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+	        //
+	    	text_info.refreshDrawableState();
+	    	button_play.refreshDrawableState();
+	    } else if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT){
+	    	//
+	    	text_info.refreshDrawableState();
+	    	button_play.refreshDrawableState();
+	    }
+	}
+	*/
 
 }

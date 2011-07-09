@@ -7,7 +7,7 @@ body, html {
   
   color: #999;
   text-align: center;
-  font-size: 15px;
+  font-size: 0.8em;
   font-family: Arial, Helvetica, sans-serif;
   
   /* background-image: url(background.png);
@@ -15,6 +15,9 @@ body, html {
   background-position: left bottom;
   background-attachment: fixed; */
   background-color: #200F0C;
+  
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 #content {
@@ -28,14 +31,23 @@ body, html {
   
   padding: 20px 20px 20px 20px;
   color:#999;
-  background-color: #782E00;
-  font-size: 15px;
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #782E00; /* need to update jplayer as well */
+}
+
+#content div {
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+#header img { /* 400/83 */
+  width: 300px;
+  height: 62px;
+  padding: 0px;
 }
 
 .webcamimg { /* 4/3 */
-  width: 132px;
-  height: 99px;
+  width: 128px;
+  height: 96px;
 }
 
 #webcam1 {
@@ -65,5 +77,75 @@ body, html {
 }
 
 a {
-    color: #999;
+  color: #999;
+}
+
+#radio {
+  display: none;
+}
+
+.trackInfo {
+  width: 250px;
+  
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  text-align: left;
+  
+  background-color: #200F0C;
+}
+/*
+.trackInfo:nth-child(odd) {
+  text-align: right;
+}
+*/
+
+#now, #next, #control {
+  width: 100px;
+  
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  background-color: #200F0C;
+}
+
+#now {
+  float: left;
+  visibility: hidden;
+  text-align: left;
+}
+
+#next {
+  float: right;
+  visibility: hidden;
+  text-align: right;
+}
+
+#control {
+  background-color: #782E00;
+  text-align: center;
+  padding: 0px !important;
+}
+
+#control img {
+  width: 40px;
+  height: 40px;
+}
+
+h2 {
+  font-size: 1.2em;
+	padding: 0px;
+	margin: 0px;
 }
