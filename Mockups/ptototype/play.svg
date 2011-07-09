@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
@@ -13,10 +14,9 @@
    height="50.307026"
    id="svg9553"
    sodipodi:version="0.32"
-   inkscape:version="0.45.1"
+   inkscape:version="0.48.1 r9760"
    version="1.0"
-   sodipodi:docbase="/home/akiross/Works/Painting"
-   sodipodi:docname="buttons_player_play.svg"
+   sodipodi:docname="play.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs9555">
@@ -845,11 +845,11 @@
     <linearGradient
        id="linearGradient10611">
       <stop
-         style="stop-color:#286a27;stop-opacity:1;"
+         style="stop-color:#782e00;stop-opacity:1;"
          offset="0"
          id="stop10613" />
       <stop
-         style="stop-color:#264826;stop-opacity:1;"
+         style="stop-color:#200f0c;stop-opacity:1;"
          offset="1"
          id="stop10615" />
     </linearGradient>
@@ -873,17 +873,6 @@
          offset="1"
          id="stop5008" />
     </linearGradient>
-    <radialGradient
-       inkscape:collect="always"
-       xlink:href="#linearGradient5004"
-       id="radialGradient9538"
-       gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.8705582,0,0,0.8705582,68.73839,-5.1011988)"
-       cx="531.03717"
-       cy="-27.63166"
-       fx="531.03717"
-       fy="-27.63166"
-       r="37.708893" />
     <linearGradient
        inkscape:collect="always"
        xlink:href="#linearGradient5037"
@@ -903,18 +892,6 @@
        y1="-39.055664"
        x2="557.55371"
        y2="-3.3467712" />
-    <filter
-       inkscape:collect="always"
-       x="-0.10167765"
-       width="1.2033553"
-       y="-0.098376818"
-       height="1.1967536"
-       id="filter10685">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="0.75759177"
-         id="feGaussianBlur10687" />
-    </filter>
     <linearGradient
        id="linearGradient5431">
       <stop
@@ -1013,18 +990,6 @@
        y1="-39.055664"
        x2="557.55371"
        y2="-3.3467712" />
-    <filter
-       inkscape:collect="always"
-       x="-0.12886298"
-       width="1.257726"
-       y="-0.11280546"
-       height="1.2256109"
-       id="filter10591">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.0405015"
-         id="feGaussianBlur10593" />
-    </filter>
     <linearGradient
        id="linearGradient6468">
       <stop
@@ -1293,18 +1258,6 @@
        y1="-39.055664"
        x2="557.55371"
        y2="-3.3467712" />
-    <filter
-       inkscape:collect="always"
-       x="-0.12895963"
-       width="1.2579193"
-       y="-0.11220445"
-       height="1.2244089"
-       id="filter31539">
-      <feGaussianBlur
-         inkscape:collect="always"
-         stdDeviation="1.1173853"
-         id="feGaussianBlur31541" />
-    </filter>
     <linearGradient
        id="linearGradient9537">
       <stop
@@ -1897,15 +1850,17 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1"
-     inkscape:cx="128.13205"
-     inkscape:cy="27.452224"
+     inkscape:zoom="8"
+     inkscape:cx="34.308281"
+     inkscape:cy="15.147104"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
-     inkscape:window-width="1272"
-     inkscape:window-height="946"
+     inkscape:current-layer="Play"
+     inkscape:window-width="1680"
+     inkscape:window-height="1026"
      inkscape:window-x="0"
-     inkscape:window-y="0" />
+     inkscape:window-y="24"
+     showgrid="false"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata9558">
     <rdf:RDF>
@@ -1931,13 +1886,13 @@
          sodipodi:end="6.2625697"
          sodipodi:start="0"
          transform="translate(-49.888429,-125.27271)"
-         d="M 566.74606,-39.409218 A 35.708893,35.708893 0 1 1 566.73848,-40.145326"
+         d="m 566.74606,-39.409218 c 0,19.721477 -15.98741,35.708893 -35.70889,35.708893 -19.72148,0 -35.70889,-15.987416 -35.70889,-35.708893 0,-19.721477 15.98741,-35.708893 35.70889,-35.708893 19.4346,0 35.30068,15.542316 35.70131,34.972785"
          sodipodi:ry="35.708893"
          sodipodi:rx="35.708893"
          sodipodi:cy="-39.409218"
          sodipodi:cx="531.03717"
          id="path9472"
-         style="opacity:1;fill:url(#radialGradient9538);fill-opacity:1;fill-rule:nonzero;stroke:url(#linearGradient10617);stroke-width:2.95431924;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:1;fill:#200f0c;fill-opacity:1;fill-rule:nonzero;stroke:url(#linearGradient10617);stroke-width:2.95431923999999979;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          sodipodi:type="arc" />
       <g
          transform="translate(-54.858701,58.82327)"
@@ -1949,11 +1904,11 @@
         <path
            id="path9478"
            d="M 521.65524,-243.05142 L 521.65524,-204.72664 L 554.59196,-223.74267 L 521.65524,-243.05142 z "
-           style="fill:#d6ffdc;fill-opacity:1;fill-rule:nonzero;stroke:#33543c;stroke-width:3.07619143;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+           style="fill:#782e00;fill-opacity:1;fill-rule:nonzero;stroke:#782e00;stroke-width:3.07619143000000017;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.70980394" />
       </g>
       <path
          transform="matrix(1.0149254,0,0,1.039604,-84.726682,-157.13675)"
-         d="M 581.24179 -21.201218 A 23.688078 17.854446 0 1 1  533.86563,-21.201218 A 23.688078 17.854446 0 1 1  581.24179 -21.201218 z"
+         d="m 581.24179,-21.201218 c 0,9.860739 -10.60551,17.8544468 -23.68808,17.8544468 -13.08256,0 -23.68808,-7.9937078 -23.68808,-17.8544468 0,-9.860738 10.60552,-17.854446 23.68808,-17.854446 13.08257,0 23.68808,7.993708 23.68808,17.854446 z"
          sodipodi:ry="17.854446"
          sodipodi:rx="23.688078"
          sodipodi:cy="-21.201218"
