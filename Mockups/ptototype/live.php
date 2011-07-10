@@ -37,6 +37,7 @@
   <script type="text/javascript" src="jquery.jplayer.min.js"></script>  
   <script type="text/javascript" src="live.js"></script>
   
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:bold&v1' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="live.css" />
   
 </head>
@@ -46,7 +47,38 @@
   <div id="content">
     
     <div id="header">
-      <img src="freshair_title.png" />
+      <div id="header-fresh">
+        <h1>Fresh<br />Air</h1>
+      </div>
+      <div id="header-player">
+        <h2>Player</h2>
+      </div>
+      <div id="header-control">
+        <img src="throbber.gif" alt="Loading ..." />
+      </div>
+      <div style="clear: both; padding: 0px;"></div>
+    </div>
+    
+    <div id="subheader">
+      <h3>
+        How - The Ted Mauley Show<br />
+        Mondays 10-11am
+      </h3>
+    </div>
+    
+    <div id="showinfo">
+      <img id="showinfo-img" src="" />
+      <p>
+        Show info Show info Show info Show info Show info Show info
+      </p>
+      <p>
+        <a href="#">Show Link</a>
+      </p>
+      <div style="clear: both; padding: 0px;"></div>
+    </div>
+    
+    <div id="nowplaying">
+        Now Playing: Song Abc
     </div>
     
     <div id="webcams">
@@ -58,35 +90,21 @@
     <div id="radio">
     </div>
     
-    <div id="info">
-      <div id="now">
-        <h2>Now</h2>
-        <a href="#" target="_blank">Loading ...</a>
+    <div id="next">
+      Next- Radioactive
+    </div>
+    
+    <div id="footer">
+      <div id="footer-hifi">
+        <div class="footer-item">Hi-Fi</div>
       </div>
-      
-      <div id="next">
-        <h2>Next</h2>
-        <a href="#" target="_blank">Loading ...</a>
+      <div id="footer-lofi">
+        <div class="footer-item">Lo-Fi</div>
       </div>
-      
-      <div id="control">
-        <img src="throbber.gif" alt="Loading ..." />
+      <div id="footer-exit">
+        <div class="footer-item">Exit</div>
       </div>
-      
       <div style="clear: both; padding: 0px;"></div>
-    </div>
-    
-    <div id="track">
-      <div class="trackInfo" style="visibility: hidden;">Loading ...</div>
-      <div class="trackInfo" style="visibility: hidden;">Loading ...</div>
-      <div class="trackInfo" style="visibility: hidden;">Loading ...</div>
-      <div class="trackInfo" style="visibility: hidden;">Loading ...</div>
-    </div>
-    
-    <div id="comment">
-      <p>
-        <a href="http://live.freshair.org.uk:3066/listen.pls">Play in external player</a>
-      </p>
     </div>
   
   </div>

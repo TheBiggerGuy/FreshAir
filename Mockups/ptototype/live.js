@@ -1,11 +1,20 @@
+/* /////////////////////////////////////////////////////////////////////////////
+
+Copyright Guy Taylor 2011
+
+Images and Design Copyright Richard Hanrahan 2011
+
+///////////////////////////////////////////////////////////////////////////// */
+
 TIMEOUT = 10*1000
 
 // stop errors for browsers that have no debug console
-if (!window.console) console = {};
-console.log = console.log || function(){};
-console.warn = console.warn || function(){};
+if (!window.console)
+    console = {};
+console.log   = console.log   || function(){};
+console.warn  = console.warn  || function(){};
 console.error = console.error || function(){};
-console.info = console.info || function(){};
+console.info  = console.info  || function(){};
 
 STATE_EMPTY   = 0;
 STATE_STOPED  = 1;
@@ -47,21 +56,21 @@ $(function() { // executed when $(document).ready()
       {
         console.info("jPlayer: play");
         state = STATE_PLAYING;
-        $("#control img").attr("src", "pause.svg").attr("alt", "pause");
+        $("#header-control img").attr("src", "pausebutton.png").attr("alt", "pause");
       },
       pause: function ()
       {
         console.info("jPlayer: pause");
         state = STATE_STOPED;
-        $("#control img").attr("src", "play.svg").attr("alt", "play");
+        $("#header-control img").attr("src", "playbutton.png").attr("alt", "play");
       },
       playing: function ()
       {
         console.info("jPlayer: pauseplaying");
         state = STATE_PLAYING;
-        $("#control img").attr("src", "pause.svg").attr("alt", "pause");
+        $("#header-control img").attr("src", "pausebutton.png").attr("alt", "pause");
       },
-      backgroundColor: "#782E00",
+      backgroundColor: "#EA6A11",
       errorAlerts: false,
       warningAlerts: false,
       solution: "html, flash"
@@ -73,12 +82,12 @@ $(function() { // executed when $(document).ready()
   setTimeout(updateWebCam2, TIMEOUT);
   setTimeout(updateTrack, 100);
   
-  $("#control").bind('click', playPause);
+  $("#header-control").bind('click', playPause);
   
   var imgLoad1 = new Image();
-  imgLoad1.src = "play.svg";
+  imgLoad1.src = "playbutton.png";
   var imgLoad2 = new Image();
-  imgLoad2.src = "pause.svg";
+  imgLoad2.src = "pausebutton.png";
   
 });
 

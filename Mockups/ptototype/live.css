@@ -1,6 +1,21 @@
+/* /////////////////////////////////////////////////////////////////////////////
+
+Copyright Guy Taylor 2011
+
+Images and Design Copyright Richard Hanrahan 2011
+
+///////////////////////////////////////////////////////////////////////////// */
+
+/*
+  * FCBE29
+  * EA6A11
+  * FFCD54
+  * FFFFFF
+  * FFDD8A
+*/
 body, html {
   height: 500px;
-  width: 400px;
+  width: 280px;
   
   margin: 0px;
   padding: 0px;
@@ -10,75 +25,189 @@ body, html {
   font-size: 0.8em;
   font-family: Arial, Helvetica, sans-serif;
   
-  background-image: url(background.png);
-  background-repeat: repeat-x;
-  background-position: left bottom;
-  background-attachment: fixed;
-  background-color: #FE8725; /* #200F0C; */
+  background-color: #FFDD8A;
   
   overflow-x: hidden;
   overflow-y: hidden;
+  
+  text-transform: uppercase;
 }
 
 #content {
-  width: 300px;
-  height: 400px;
+  width: 250px;
+  height: 425px;
   
-  border-radius: 25px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 20px;
+  /* border-radius: 25px; */
+  margin: 15px;
   
-  padding: 20px 20px 20px 20px;
-  color:#999;
-  background-color: #782E00; /* need to update jplayer as well */
-}
-
-#content div {
-  padding-bottom: 7px;
-  padding-top: 7px;
-}
-
-#header img { /* 400/83 */
-  width: 300px;
-  height: 62px;
   padding: 0px;
+  color: #999;
+  background-color: #EA6A11; /* Update jplayer as well */
+}
+
+h1, h2 {
+  margin: 0px;
+  border-width: 0px;
+  padding: 0px;
+  
+  font-family: 'PT Sans', arial, serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 77px;
+  color: #FFFFFF
+}
+
+h2 {
+  font-size: 72px;
+}
+
+#header {
+  width: 250px;
+}
+
+#header-fresh {
+  float: left;
+  
+  text-align: right;
+  letter-spacing: normal;
+  line-height: 65px;
+  
+  width: 215px;
+  height: 154px;
+}
+
+#header-player {
+  float: right;
+  background-image: url('header-player.png');
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 154px;
+}
+
+#header-player h2 {
+  display: none;
+}
+
+#header-control {
+  text-align: center;
+  
+  padding: 0px;
+  width: 75px;
+  height: 75px;
+  
+  position: absolute;
+  left: 20px;
+  top: 90px;
+}
+
+#header-control img {
+  width: 75px;
+  height: 75px;
+}
+
+#subheader {
+  text-align: left;
+}
+
+#showinfo {
+  background-color: #FFCD54;
+  text-align: left;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #EA6A11;
+}
+
+#showinfo-img {
+  float: left;
+  width: 100px;
+  height: 50px;
+}
+
+#showinfo a {
+  color: #FFFFFF;
+}
+
+#nowplaying {
+  background-color: #FCBE29;
+  text-align: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: #000000;
+}
+
+p {
+  margin: 0px;
 }
 
 .webcamimg { /* 4/3 */
-  width: 128px;
-  height: 96px;
+  width: 116px;
+  height: 87px;
 }
 
 #webcam1 {
   float: left;
-  margin-left: 19px;
+  margin-left: 4px;
 }
 
 #webcam2 {
   float: right;
-  margin-right: 19px;
+  margin-right: 4px;
 }
 
-#throbber1 {
-  position: relative;
-  left: -16px;
-  top: 82px;
+#next {
+  text-align: left;
+  font-size: 16px;
+  color: #FFFFFF;
+  margin: 5px;
+}
+
+#footer {
+  background-color: #FFDD8A;
+  text-align: center;
+  height: 30px;
+  font-size: 15px;
+}
+
+#footer-hifi {
   float: left;
-  display: none;
+  background-color: #EA6A11;
+  width: 83px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-#throbber2 {
-  position: relative;
-  left: 132px;
-  top: 82px;
+#footer-lofi {
   float: right;
-  display: none;
+  background-color: #EA6A11;
+  width: 83px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
 }
 
-a {
-  color: #999;
+
+#footer-exit {
+  background-color: #EA6A11;
+  width: 84px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  
+  margin-left: auto;
+  margin-right: auto;
 }
+
+.footer-item {
+  background-color: #FFCD54;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+/* ////////////////////////////////////////////////// */
 
 #radio {
   height: 1px;
@@ -104,54 +233,3 @@ a {
   background-color: #200F0C;
 }
 
-#track .odd {
-  background-color: #2C001E;
-}
-
-#track .even {
-  background-color: #2C001E;
-}
-
-#now, #next, #control {
-  width: 100px;
-  
-  border-radius: 10px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 0px;
-  margin-bottom: 0px;
-  
-  padding-left: 10px;
-  padding-right: 10px;
-  
-  background-color: #200F0C;
-}
-
-#now {
-  float: left;
-  visibility: hidden;
-  text-align: left;
-}
-
-#next {
-  float: right;
-  visibility: hidden;
-  text-align: right;
-}
-
-#control {
-  background-color: #782E00;
-  text-align: center;
-  padding: 0px !important;
-}
-
-#control img {
-  width: 40px;
-  height: 40px;
-}
-
-h2 {
-  font-size: 1.2em;
-	padding: 0px;
-	margin: 0px;
-}
