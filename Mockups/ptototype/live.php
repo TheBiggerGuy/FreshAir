@@ -37,7 +37,7 @@
   <script type="text/javascript" src="jquery.jplayer.min.js"></script>  
   <script type="text/javascript" src="live.js"></script>
   
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:bold&v1' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,bold&v1' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="live.css" />
   
 </head>
@@ -53,10 +53,10 @@
       <div id="header-player">
         <h2>Player</h2>
       </div>
-      <div id="header-control">
+      <div id="header-control" class="tooltip" title="Pause">
         <img src="throbber.gif" alt="Loading ..." />
       </div>
-      <div style="clear: both; padding: 0px;"></div>
+      <div style="clear: left; padding: 0px;"></div>
     </div>
     
     <div id="subheader">
