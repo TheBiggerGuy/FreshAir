@@ -10,11 +10,11 @@ body, html {
   font-size: 0.8em;
   font-family: Arial, Helvetica, sans-serif;
   
-  /* background-image: url(background.png);
+  background-image: url(background.png);
   background-repeat: repeat-x;
   background-position: left bottom;
-  background-attachment: fixed; */
-  background-color: #200F0C;
+  background-attachment: fixed;
+  background-color: #FE8725; /* #200F0C; */
   
   overflow-x: hidden;
   overflow-y: hidden;
@@ -81,7 +81,10 @@ a {
 }
 
 #radio {
-  /* display: none; */
+  height: 1px;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
 }
 
 .trackInfo {
@@ -100,11 +103,14 @@ a {
   
   background-color: #200F0C;
 }
-/*
-.trackInfo:nth-child(odd) {
-  text-align: right;
+
+#track .odd {
+  background-color: #2C001E;
 }
-*/
+
+#track .even {
+  background-color: #2C001E;
+}
 
 #now, #next, #control {
   width: 100px;

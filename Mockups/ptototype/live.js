@@ -1,4 +1,4 @@
-TIMEOUT = 30*1000
+TIMEOUT = 10*1000
 
 // stop errors for browsers that have no debug console
 if (!window.console) console = {};
@@ -14,6 +14,8 @@ STATE_PLAYING = 3;
 
 var state = STATE_EMPTY;
 var player = null;
+
+var trackCount = 0;
 
 $(function() { // executed when $(document).ready()
   
@@ -73,6 +75,11 @@ $(function() { // executed when $(document).ready()
   
   $("#control").bind('click', playPause);
   
+  var imgLoad1 = new Image();
+  imgLoad1.src = "play.svg";
+  var imgLoad2 = new Image();
+  imgLoad2.src = "pause.svg";
+  
 });
 
 function playPause(eventObject) {
@@ -120,7 +127,16 @@ function updateTrack() {
             return;
         
         if(data.uid == lastUid) {
-          dom = $("<div class=\"trackInfo\">" + data.data.show + ": " + data.data.track + "</div>").hide();
+          
+          trackCount++;
+          
+          if( trackCount % 2 == 0){
+            classN = "even";
+          } else {
+            classN = "odd";
+          }
+          
+          dom = $("<div class=\"trackInfo "+classN+"\">" + data.data.track + "</div>").hide();
           $("#track").prepend(dom)
           dom.slideDown("slow");
           lastUid = data.uid;
