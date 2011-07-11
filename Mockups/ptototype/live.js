@@ -1,10 +1,14 @@
-/* /////////////////////////////////////////////////////////////////////////////
-
-Copyright Guy Taylor 2011
-
-Images and Design Copyright Richard Hanrahan 2011
-
-///////////////////////////////////////////////////////////////////////////// */
+/**
+ * FreshAir.org.uk Radio Player 
+ * ---
+ * @author Guy Taylor (http://www.thebiggerguy.com)
+ * @version 0.5
+ * @updated 11-JUL-2011
+ * @created 08-JUL-2011
+ * ---
+ * Copyright Guy Taylor 2011
+ * Images and Design Copyright Richard Hanrahan 2011
+ */
 
 TIMEOUT = 10*1000
 
@@ -29,6 +33,16 @@ var trackCount = 0;
 $(function() { // executed when $(document).ready()
   
   console.info("$(document).ready()");
+  
+  $("#header-control img").pulse(
+    {
+      opacity: [0.6, 1]
+    },
+    {
+      duration: 2000,
+      times: 999999
+    }
+  );
   
   // start audio
   $("#radio").jPlayer(
@@ -57,18 +71,21 @@ $(function() { // executed when $(document).ready()
         console.info("jPlayer: play");
         state = STATE_PLAYING;
         $("#header-control img").attr("src", "pausebutton.png").attr("alt", "pause");
+        $("#header-control").attr("title", "pause");
       },
       pause: function ()
       {
         console.info("jPlayer: pause");
         state = STATE_STOPED;
         $("#header-control img").attr("src", "playbutton.png").attr("alt", "play");
+        $("#header-control").attr("title", "play");
       },
       playing: function ()
       {
         console.info("jPlayer: pauseplaying");
         state = STATE_PLAYING;
         $("#header-control img").attr("src", "pausebutton.png").attr("alt", "pause");
+        $("#header-control").attr("title", "pause");
       },
       backgroundColor: "#EA6A11",
       errorAlerts: false,
@@ -80,7 +97,7 @@ $(function() { // executed when $(document).ready()
   // start webcam feed       
   setTimeout(updateWebCam1, TIMEOUT);
   setTimeout(updateWebCam2, TIMEOUT);
-  setTimeout(updateTrack, 100);
+  //setTimeout(updateTrack, 100); // TODO
   
   $("#header-control").bind('click', playPause);
   
