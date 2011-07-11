@@ -27,8 +27,7 @@ body, html {
   
   background-color: #FFDD8A;
   
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
   
   text-transform: uppercase;
 }

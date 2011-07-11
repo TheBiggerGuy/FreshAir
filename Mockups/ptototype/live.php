@@ -38,8 +38,11 @@
   
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
   <script type="text/javascript" src="jquery.jplayer.min.js"></script>
-  <script type="text/javascript" src="jquery.pulse.js"></script>
-  <script type="text/javascript" src="live.js"></script>
+  <!--
+    <script type="text/javascript" src="jquery.pulse.js"></script>
+    <script type="text/javascript" src="live.js"></script>
+  -->
+  <script type="text/javascript" src="live.min.js"></script>
   
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,bold&v1' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="live.css" />
