@@ -14,7 +14,7 @@ Images and Design Copyright Richard Hanrahan 2011
   * FFDD8A
 */
 body, html {
-  height: 440px;
+  /* height: 440px; */
   width: 280px;
   
   margin: 0px;
@@ -63,6 +63,16 @@ h2 {
   font-size: 72px;
 }
 
+#warning {
+  background-color: #000000;
+  color: #FF0000;
+  font-size: 18px;
+  float: left
+}
+#warning a {
+  color: #FF1010;
+}
+
 #header {
   width: 250px;
 }
@@ -95,12 +105,15 @@ h2 {
   text-align: center;
   
   padding: 0px;
+  border-width: 0px;
+  
+  margin-left: 20px;
+  
   width: 66px;
   height: 66px;
   
-  position: absolute;
-  left: 20px;
-  top: 82px;
+  position: relative;
+  top: -62px;
 }
 
 #header-control img {
@@ -221,8 +234,6 @@ p {
   border-top-left-radius: 5px;
 }
 
-/* ////////////////////////////////////////////////// */
-
 #radio {
   height: 1px;
   padding: 0px;
@@ -230,6 +241,9 @@ p {
   border-width: 0px;
 }
 
+/* ////////////////////////////////////////////////// */
+
+/*
 .trackInfo {
   width: 250px;
   
@@ -246,4 +260,4 @@ p {
   
   background-color: #200F0C;
 }
-
+*/

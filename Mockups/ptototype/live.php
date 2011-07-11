@@ -1,8 +1,11 @@
 <?php
-
+  
+  // make cache free TODO
+  
+  header('Cache-Control: no-cache, must-revalidate');
+  header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
+  
   if( isset($_GET['action']) && $_GET['action'] == 'track' ) {
-    header('Cache-Control: no-cache, must-revalidate');
-    header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
     header('Content-type: application/json');
     
     $arr = array(
@@ -44,7 +47,15 @@
 </head>
 
 <body>
-
+  
+  <!--[if lt IE 7]>
+  <div id="warning">
+    Warning: FreshAir does not support you browser.
+      <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">Please Upgrade IE6</a>
+  </div>
+  <div style="clear: left; padding: 0px;"></div>
+  <![endif]-->
+  
   <div id="content">
     
     <div id="header">
@@ -54,17 +65,17 @@
       <div id="header-player">
         <h2>Player</h2>
       </div>
-      <div id="header-control" class="tooltip" title="Pause">
+      <div id="header-control" class="tooltip" title="Pause" >
         <img src="throbber.gif" alt="Loading ..." />
       </div>
       <div style="clear: left; padding: 0px;"></div>
-    </div>
-    
-    <div id="subheader">
-      <h3>
-        How - The Ted Mauley Show<br />
-        Mondays 10-11am
-      </h3>
+      <div id="subheader">
+        <h3>
+          How - The Ted Mauley Show<br />
+          Mondays 10-11am
+        </h3>
+        <div style="clear: both; padding: 0px;"></div>
+      </div>
     </div>
     
     <div id="showinfo">
@@ -88,11 +99,11 @@
       <div style="clear: both; padding: 0px;"></div>
     </div>
     
-    <div id="radio">
-    </div>
-    
     <div id="next">
       Next- Radioactive
+    </div>
+    
+    <div id="radio">
     </div>
     
     <div id="footer">
