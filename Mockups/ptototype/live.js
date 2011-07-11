@@ -34,15 +34,64 @@ $(function() { // executed when $(document).ready()
   
   console.info("$(document).ready()");
   
-  $("#header-control img").pulse(
+  $("#header-control img").hover(
+    function ()
     {
-      opacity: [0.6, 1]
+      $(this).stop();
+      $(this).pulse(
+      {
+        opacity: [0.5, 1]
+      },
+      {
+        duration: 500,
+        times: 999999,
+        easing: "swing"
+      });
     },
+    function ()
     {
-      duration: 2000,
-      times: 999999
+      $(this).stop();
+      $(this).pulse(
+      {
+        opacity: [1, 0.5]
+      },
+      {
+        duration: 2000,
+        times: 999999,
+        easing: "swing"
+      });
+    }
+  ).trigger('mouseleave');
+  
+  $(".footer-item").hover(
+    function ()
+    {
+      $(this).parent().animate(
+      {
+        height: 25,
+        easing: "swing"
+      });
+    },
+    function ()
+    {
+      $(this).parent().animate(
+      {
+        height: 20,
+        easing: "swing"
+      });
     }
   );
+  
+  $("#header-control").bind('click', playPause);
+  $("#header-control").bind('click', playPause);
+  
+  
+  $("#header-control").bind('click', playPause);
+  
+  var imgLoad1 = new Image();
+  imgLoad1.src = "playbutton.png";
+  var imgLoad2 = new Image();
+  imgLoad2.src = "pausebutton.png";
   
   // start audio
   $("#radio").jPlayer(
@@ -98,13 +147,6 @@ $(function() { // executed when $(document).ready()
   setTimeout(updateWebCam1, TIMEOUT);
   setTimeout(updateWebCam2, TIMEOUT);
   //setTimeout(updateTrack, 100); // TODO
-  
-  $("#header-control").bind('click', playPause);
-  
-  var imgLoad1 = new Image();
-  imgLoad1.src = "playbutton.png";
-  var imgLoad2 = new Image();
-  imgLoad2.src = "pausebutton.png";
   
 });
 

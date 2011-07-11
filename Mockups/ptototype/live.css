@@ -230,6 +230,8 @@ p {
   margin-right: 5px;
   margin-bottom: 0px;
   
+  height: 20px;
+  
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
 }
