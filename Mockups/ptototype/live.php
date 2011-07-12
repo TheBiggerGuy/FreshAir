@@ -16,16 +16,24 @@
         'now'     => array(
           'title' => 'The Ted Mauley Show',
           'des'   => 'Show info Show info Show info Show info Show info Show info',
-          'onat'  => 'Mondays 10-11am',
+          'onat'  => array(
+            'long_' => 'Mondays 10-11am',
+            'short_'  => '10am',
+            'unix'  => '1234567890'
+          ),
           'url'   => 'http://www.freshair.org.uk/shows/show1',
-          'img'   => '#'
+          'img'   => 'http://d7.freshair.org.uk/sites/default/files/styles/square_thumbnail/public/Picture0001.jpg'
         ),
         'next'    => array(
           'title' => 'Radioactive',
           'des'   => 'Show info Show info Show info Show info Show info Show info',
-          'onat'  => 'Mondays 11-12am',
+          'onat'  => array(
+            'long_' => 'Mondays 11-12am',
+            'short_'  => '11am',
+            'unix'  => '1234567890'
+          ),
           'url'   => 'http://www.freshair.org.uk/shows/show2',
-          'img'   => '#'
+          'img'   => 'http://d7.freshair.org.uk/sites/default/files/styles/square_thumbnail/public/Picture0001.jpg'
         ),
         'station' => 'FreshAir'
       )
@@ -43,12 +51,12 @@
   <title>Fresh Air - Listen Now</title>
   
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-  <script type="text/javascript" src="jquery.jplayer.min.js"></script>
-  <!--
+  <script type="text/javascript" src="jquery.jplayer.js"></script>
+  
     <script type="text/javascript" src="jquery.pulse.js"></script>
     <script type="text/javascript" src="live.js"></script>
-  -->
-  <script type="text/javascript" src="live.min.js"></script>
+  
+  <!-- <script type="text/javascript" src="live.min.js"></script> -->
   
   <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,bold&v1' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="live.css" />
@@ -93,7 +101,7 @@
         Loading ...
       </p>
       <p>
-        <a id="showinfo-link" href="#">Loading ...</a>
+        <a id="showinfo-link" href="#">Show page</a>
       </p>
       <div style="clear: both; padding: 0px;"></div>
     </div>
@@ -109,7 +117,7 @@
     </div>
     
     <div id="next">
-      Next- <span id="next-title">Loading ...</title> at <span id="next-time">Loading ...</span>
+      Next- <span id="next-title">Loading ...</span> at <span id="next-time">Loading ...</span>
     </div>
     
     <div id="radio">
@@ -122,8 +130,8 @@
       <div id="footer-lofi">
         <div class="footer-item">Lo-Fi</div>
       </div>
-      <div id="footer-exit">
-        <div class="footer-item">Exit</div>
+      <div id="footer-ext">
+        <div class="footer-item">External</div>
       </div>
       <div style="clear: both; padding: 0px;"></div>
     </div>

@@ -198,7 +198,7 @@ p {
 #footer-hifi {
   float: left;
   background-color: #EA6A11;
-  width: 83px;
+  width: 74px;
   
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
@@ -207,22 +207,24 @@ p {
 #footer-lofi {
   float: right;
   background-color: #EA6A11;
-  width: 83px;
+  width: 74px;
   
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 }
 
 
-#footer-exit {
+#footer-ext {
   background-color: #EA6A11;
-  width: 84px;
+  width: 104px;
   
   border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
   
   margin-left: auto;
   margin-right: auto;
+  
+  margin-bottom: 10px;
 }
 
 .footer-item {
