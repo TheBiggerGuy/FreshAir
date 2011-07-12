@@ -1,0 +1,66 @@
+<?php
+
+function dicecast_cron() {
+  // Short-running operation example, not using a queue:
+  
+  // only allow one every 60 seconds ///////////////////////////////////////////
+  $now = time();
+  $last_run = variable_get('dicecast_cron_last_run', $now-61);
+  
+  if($now - $last_run < 60 ) {
+    watchdog('cron', 'dicecast already run this minute (now=@now, last=@last, diff=@diff', array('@last' => $last_run, '@now' => $now, '@diff' => $now-$last_run), WATCHDOG_INFO);
+    return;
+  }
+  
+  // Get the stats //////////////////////////////////////////////////////////////
+  
+  try {
+    $response = file_get_contents('http://live.freshair.org.uk:3066/7.html');
+    
+    
+    if( $response == false )
+      trigger_error('file_get_contents failed');
+    
+    // 7,1,26,300,7,128,RJD2-Crumbs off the Table
+    // listener counts, server state, bitrate, and current title
+    // curent number, low, peack, max
+    $data = explode(",", $response, 7);
+    
+    $listnercount = $data[0];
+    $currenttitle = $data[6];
+  
+  } catch (Exception $e) {
+    // Log the exception to watchdog.
+    watchdog_exception('php', $e);
+    return;
+  }
+  
+  // Inster on the DB ///////////////////////////////////////////////////////////
+  
+  $txn = db_transaction();
+  
+  try {
+  
+    db_insert('dicecast_metadata')
+    ->fields(
+      array(
+        'when' => $now,
+        'listnercount' => int($listnercount),
+        'currenttitle' => check_plain($currenttitle)
+      )
+    )->execute();
+  
+  } catch (Exception $e) {
+    // Something went wrong somewhere, so roll back now.
+    $txn->rollback();
+    // Log the exception to watchdog.
+    watchdog_exception('php', $e);
+    return;
+  }
+  
+  // Upade the last run time 
+  variable_set('dicecast_cron_last_run', $now);
+  
+  watchdog('cron', 'dicecast updated at @time', array('@time' => $now), WATCHDOG_INFO);
+}
+?>

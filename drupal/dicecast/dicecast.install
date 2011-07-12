@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the drupalflow module.
+ */
+
+function dicecast_schema() {
+  $schema['dicecast_metadata'] = array(
+    'description' => 'Stream track metadata table.', 
+    'fields' => array(
+      'when' => array(
+        'description' => 'Date and Time of the data.', 
+        'type' => 'int',
+        'not null' => TRUE,
+        'size' => 'big'
+      ),
+      'listnercount' => array(
+        'description' => 'The current listner count.', 
+        'type' => 'int', 
+        'not null' => TRUE,
+        'size' => 'normal'
+      ),
+      'currenttitle' => array(
+        'description' => 'The currently playing track.', 
+        'type' => 'text', 
+        'not null' => TRUE,
+        'size' => 'normal'
+      )
+    ),
+    'primary key' => array('when')
+  );
+  return $schema;
+}
+
+function dicecast_install() {
+  // Create my tables.
+  drupal_install_schema('metadata');
+  variable_initialize(
+    array(
+      'dicecast_cron_last_run' => time()
+      )
+    );
+}
+
+function dicecast_uninstall() {
+  // Drop my tables.
+  drupal_uninstall_schema('metadata');
+  variable_del('dicecast_cron_last_run');
+}
+

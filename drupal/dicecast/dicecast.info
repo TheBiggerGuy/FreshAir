@@ -1,0 +1,12 @@
+name = dicecast
+description = A ICEcast/Shoutcast hellper module.
+package = dicecast
+core = 7.x
+;dependencies[] = block
+;files[] = 
+
+version = "7.x-0.1-dev"
+core = "7.x"
+project = "dicecast-metadata"
+datestamp = "1310365108"
+
