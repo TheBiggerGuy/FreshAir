@@ -1,0 +1,9 @@
+#EXTM3U - header - must be first line of file
+#EXTINF - FreshAir.org.uk - 0, Fresh Air: The Alternative
+http://live.freshair.org.uk:3066
+#EXTINF - FreshAir.org.uk - 0, Fresh Air: The Alternative
+http://live.freshair.org.uk:3088
+#EXTINF - FreshAir.org.uk - 0, Fresh Air: The Alternative
+http://live.freshair.org.uk:3066/;
+#EXTINF - FreshAir.org.uk - 0, Fresh Air: The Alternative
+http://live.freshair.org.uk:3088/;

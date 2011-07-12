@@ -87,7 +87,7 @@ var AUDIO_URL_LOW  = "http://live.freshair.org.uk:3088/;";
  * @const
  * @type {string}
  */
-var AUDIO_URL_HIGH_EXT = "http://live.freshair.org.uk:3066/listen.pls";
+var AUDIO_URL_HIGH_EXT = "http://www.freshair.org.uk/dev/live.m3u";
 
 /**
  * Max number of chars for now playing song
@@ -224,7 +224,7 @@ $(function() { // executed when $(document).ready()
   $(CSS_CHANGE_AUDIO_URL_EXT).bind('click', function ()
   {
     destroyPlayer();
-    window.location(AUDIO_URL_HIGH_EXT);
+    window.location = AUDIO_URL_HIGH_EXT;
   });
   
   // preload images
