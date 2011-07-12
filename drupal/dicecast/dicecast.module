@@ -15,7 +15,17 @@ function dicecast_cron() {
   // Get the stats //////////////////////////////////////////////////////////////
   
   try {
-    $response = file_get_contents('http://live.freshair.org.uk:3066/7.html');
+    
+    // Create a stream
+    $opts = array(
+      'http' =>array(
+        'method' => 'GET',
+        'header' => 'User-Agent: Mozilla\r\n'
+      )
+    );
+    $context = stream_context_create($opts);
+    
+    $response = file_get_contents('http://live.freshair.org.uk:3066/7.html', false, $context);
     
     
     if( $response == false )
@@ -49,7 +59,8 @@ function dicecast_cron() {
         'currenttitle' => check_plain($currenttitle)
       )
     )->execute();
-  
+    
+    unset($txn);
   } catch (Exception $e) {
     // Something went wrong somewhere, so roll back now.
     $txn->rollback();
