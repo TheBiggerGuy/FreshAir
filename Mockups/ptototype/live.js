@@ -22,6 +22,7 @@
  * ---
  */
 
+// Adding jplayer will cause an uknow error !!!
 /*
  * Includes jquery.jplayer.js (version 2.0.0 20-DEC-10)
  * http://www.happyworm.com/jquery/jplayer
@@ -59,6 +60,7 @@ var AUDIO_URL_HIGH = "http://live.freshair.org.uk:3066/;";
 var AUDIO_URL_LOW  = "http://live.freshair.org.uk:3088/;";
 
 /**
+ * Array of images to preload
  * @const
  */
 var IMAGES = [
@@ -67,9 +69,16 @@ var IMAGES = [
   "throbber.gif"
 ];
 
-/** @const */ var DEBUG   = true;
-/** @const */ var TIMEOUT_WEBCAM = 10*1000
-/** @const */ var TIMEOUT_TRACK  =  5*1000
+/**
+ * URL to Jplayer.swf. not including the filename
+ * @const
+ */
+var JPLAYER_SWF_URL = "http://www.freshair.org.uk/dev/";
+
+/** @const */ var DEBUG              = true;
+/** @const */ var TIMEOUT_WEBCAM     = 10*1000
+/** @const */ var TIMEOUT_INFO       = 10*1000
+/** @const */ var TIMEOUT_INFO_INIT  = 100
 
 
 
@@ -160,157 +169,175 @@ $(function() { // executed when $(document).ready()
   }
   
   // start audio
-  $("#radio").jPlayer(
-    {
-      ready: function ()
-      {
-        if (DEBUG)
-          console.info("jPlayer: Ready");
-        player = $(this).jPlayer("setMedia",
-          {
-            mp3: AUDIO_URL_HIGH
-          }
-        );
-        state = STATES.STATE_STOPED;
-        $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
-        $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
-      },
-      swfPath: "http://www.freshair.org.uk/dev/",
-      supplied: "mp3",
-      error: function (error)
-      {
-        if (DEBUG)
-          console.info("jPlayer: error");
-        $(CSS_PLAY_PAUSE_DIV).html("Error !");
-      },
-      play: function ()
-      {
-        if (DEBUG)
-          console.info("jPlayer: play");
-        state = STATES.STATE_PLAYING;
-        $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
-        $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
-      },
-      pause: function ()
-      {
-        if (DEBUG)
-          console.info("jPlayer: pause");
-        state = STATES.STATE_STOPED;
-        $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
-        $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
-      },
-      playing: function ()
-      {
-        if (DEBUG)
-          console.info("jPlayer: pauseplaying");
-        state = STATES.STATE_PLAYING;
-        $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
-        $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
-      },
-      backgroundColor: "#EA6A11",
-      errorAlerts: false,
-      warningAlerts: false,
-      solution: "html, flash",
-      preload: "none",
-      cssSelector: {
-        videoPlay: "",
-        play: "",
-        pause: "",
-        stop: "",
-        seekBar: "",
-        playBar: "",
-        mute: "",
-        unmute: "",
-        volumeBar: "",
-        volumeBarValue: "",
-        currentTime: "",
-        duration: ""
-      }
-    }
-  );
+  player = makePlayer();
   
   // start webcam feed       
   setTimeout(updateWebCam1, TIMEOUT_WEBCAM);
   setTimeout(updateWebCam2, TIMEOUT_WEBCAM);
-  //setTimeout(updateTrack, TIMEOUT_TRACK); // TODO
+  setTimeout(updateInfo,    TIMEOUT_INFO_INIT);
   
 });
 
+function makePlayer() {
+  return $("#radio").jPlayer(
+  {
+    ready: function ()
+    {
+      if (DEBUG)
+        console.info("jPlayer: Ready");
+      $(this).jPlayer(
+      "setMedia",
+      {
+        mp3: AUDIO_URL_HIGH
+      });
+      state = STATES.STATE_STOPED;
+      $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
+      $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
+    },
+    swfPath: JPLAYER_SWF_URL,
+    supplied: "mp3",
+    error: function (error)
+    {
+      if (DEBUG)
+        console.info("jPlayer: error");
+      $(CSS_PLAY_PAUSE_DIV).html("Error !");
+    },
+    play: function ()
+    {
+      if (DEBUG)
+        console.info("jPlayer: play");
+      state = STATES.STATE_PLAYING;
+      $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
+      $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
+    },
+    pause: function ()
+    {
+      if (DEBUG)
+        console.info("jPlayer: pause");
+      state = STATES.STATE_STOPED;
+      $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
+      $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
+    },
+    playing: function ()
+    {
+      if (DEBUG)
+        console.info("jPlayer: pauseplaying");
+      state = STATES.STATE_PLAYING;
+      $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
+      $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
+    },
+    backgroundColor: "#EA6A11",
+    errorAlerts: false,
+    warningAlerts: false,
+    solution: "html, flash",
+    preload: "none",
+    cssSelector: {
+      videoPlay: "",
+      play: "",
+      pause: "",
+      stop: "",
+      seekBar: "",
+      playBar: "",
+      mute: "",
+      unmute: "",
+      volumeBar: "",
+      volumeBarValue: "",
+      currentTime: "",
+      duration: ""
+    }
+  });
+  if (DEBUG)
+    console.info("makePlayer: made player");
+}
+
+function destroyPlayer() {
+  try {
+    player.jPlayer("destroy");
+  } catch (e) {
+    if (DEBUG)
+      console.info("destroyPlayer: Unable to destroy player !");
+  }
+  player = null;
+  state = STATES.STATE_EMPTY;
+}
+
 function playPause(eventObject) {
+  
+  if (player == null) {
+    makePlayer();
+    return;
+  }
   
   switch (state)
   {
     case STATES.STATE_STOPED:
       if (DEBUG)
         console.info("playPau: play");
-      if(player != null)
-        player.jPlayer("play");
+      player.jPlayer("play");
       break;
     
     case STATES.STATE_PAUSED:
       if (DEBUG)
         console.info("playPau: play");
-      if(player != null)
-        player.jPlayer("play");
+      player.jPlayer("play");
       break;
     
     case STATES.STATE_PLAYING:
       if (DEBUG)
         console.info("playPau: pause");
-      if(player != null)
-        player.jPlayer("stop");
+      player.jPlayer("stop");
+      destroyPlayer();
       break;
     
     default:
       if (DEBUG)
         console.info("playPause: Unknown !");
+      destroyPlayer()
+      makePlayer()
       break;
   }
 }
 
 var lastUid = 1;
 
-function updateTrack() {
+function updateInfo() {
   if (DEBUG)
-    console.info("updateTrack:");
+    console.info("updateInfo:");
   // view-source:http://live.freshair.org.uk:3066/7.html
   jQuery.ajax(
     {
-      url: "http://freshair.org.uk/dev/live.php?action=track",
+      url: "http://freshair.org.uk/dev/live.php?action=getinfo",
       dataType: "json",
       success: function (data)
       {
         if (DEBUG)
-          console.info("updateTrack: " + data.status);
+          console.info("updateInfo: " + data.status);
         
         if(data.status != "ok")
-            return;
+          return;
         
-        if(data.uid == lastUid) {
+        var json = data.data;
+        var now  = json.now;
+        var next = json.next;
           
-          trackCount++;
-          
-          if( trackCount % 2 == 0){
-            classN = "even";
-          } else {
-            classN = "odd";
-          }
-          
-          dom = $("<div class=\"trackInfo "+classN+"\">" + data.data.track + "</div>").hide();
-          $("#track").prepend(dom)
-          dom.slideDown("slow");
-          lastUid = data.uid;
-          $("#track div:last").slideUp("slow", function () { $(this).remove() } );
-          
-          $("#now").css("visibility", "visible");
-          $("#next").css("visibility", "visible");
-          $("#now a").html(data.data.now.showName).attr("href", data.data.now.url);
-          $("#next a").html(data.data.next.showName).attr("href", data.data.next.url);
-        }
+        $("#nowplaying-title").html(json.track);
+        
+        $("#header-subheader").css("visibility", "visible");
+        $("#header-subheader-title").html(now.title);
+        $("#header-subheader-time" ).html(now.onat);
+        
+        $("#showinfo").css("visibility", "visible");
+        $("#showinfo-des").html(now.descr);
+        $("#showinfo-link").attr("href", now.url);
+        $("#showinfo-img").attr("src", now.img);
+        
+        $("#next").css("visibility", "visible");
+        $("#next-title").html(next.title);
+        $("#next-time" ).html(next.onat);
       },
       complete: function ()
       {
-        setTimeout(updateTrack, TIMEOUT_TRACK);
+        setTimeout(updateInfo, TIMEOUT_INFO);
       }
     }
   );

@@ -5,7 +5,7 @@
   header('Cache-Control: no-cache, must-revalidate');
   header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
   
-  if( isset($_GET['action']) && $_GET['action'] == 'track' ) {
+  if( isset($_GET['action']) && $_GET['action'] == 'getinfo' ) {
     header('Content-type: application/json');
     
     $arr = array(
@@ -14,12 +14,18 @@
       'data'    => array(
         'track'   => 'RJD2-Crumbs off the Table',
         'now'     => array(
-          'showName'  => 'show1',    
-          'url'   => 'http://www.freshair.org.uk/shows/show1'
+          'title' => 'The Ted Mauley Show',
+          'des'   => 'Show info Show info Show info Show info Show info Show info',
+          'onat'  => 'Mondays 10-11am',
+          'url'   => 'http://www.freshair.org.uk/shows/show1',
+          'img'   => '#'
         ),
-        'next'     => array(
-          'showName'  => 'show2',    
-          'url'   => 'http://www.freshair.org.uk/shows/show2'
+        'next'    => array(
+          'title' => 'Radioactive',
+          'des'   => 'Show info Show info Show info Show info Show info Show info',
+          'onat'  => 'Mondays 11-12am',
+          'url'   => 'http://www.freshair.org.uk/shows/show2',
+          'img'   => '#'
         ),
         'station' => 'FreshAir'
       )
@@ -72,28 +78,28 @@
         <img src="throbber.gif" alt="Loading ..." />
       </div>
       <div style="clear: left; padding: 0px;"></div>
-      <div id="subheader">
+      <div id="header-subheader">
         <h3>
-          How - The Ted Mauley Show<br />
-          Mondays 10-11am
+          <span id="header-subheader-title">Loading ...</span><br />
+          <span id="header-subheader-time">Loading ...</span>
         </h3>
         <div style="clear: both; padding: 0px;"></div>
       </div>
     </div>
     
     <div id="showinfo">
-      <img id="showinfo-img" src="" />
-      <p>
-        Show info Show info Show info Show info Show info Show info
+      <img id="showinfo-img" src="throbber.gif" />
+      <p id="showinfo-des">
+        Loading ...
       </p>
       <p>
-        <a href="#">Show Link</a>
+        <a id="showinfo-link" href="#">Loading ...</a>
       </p>
       <div style="clear: both; padding: 0px;"></div>
     </div>
     
     <div id="nowplaying">
-        Now Playing: Song Abc
+        Now Playing: <span id="nowplaying-title">Loading ...</span>
     </div>
     
     <div id="webcams">
@@ -103,7 +109,7 @@
     </div>
     
     <div id="next">
-      Next- Radioactive
+      Next- <span id="next-title">Loading ...</title> at <span id="next-time">Loading ...</span>
     </div>
     
     <div id="radio">
