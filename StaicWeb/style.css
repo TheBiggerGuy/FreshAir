@@ -1,7 +1,11 @@
 /* reset */
-html, body, a {
+html, body, a, ul, li {
   margin: 0px;
   padding: 0px;
+}
+
+li {
+  list-style: none;
 }
 
 /* Font and Text */
@@ -96,7 +100,7 @@ div {
 }
 
 #content img {
-  text-align: center;
+  display: block;
   margin-left: auto;
   margin-right: auto
 }
