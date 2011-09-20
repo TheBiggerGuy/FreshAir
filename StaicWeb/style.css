@@ -9,6 +9,23 @@ li {
 }
 
 /* Font and Text */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+a:link {
+  color: #fff;
+}
+a:visited {
+  color: #fff;
+}
+a:hover {
+  color: #000000;
+}
+a:active {
+  color: #000000;
+}
+
 h1 {
   font-family: 'Comfortaa', cursive;
   font-size: 2.0em;
@@ -32,12 +49,22 @@ body {
   color: #fff;
 }
 
+#header {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#header a {
+  font-size: 25px;
+}
+
 #footer {
   font-family: 'Comfortaa', cursive;
   font-size: 1.8em;
   text-align: center;
   color: #fff;
   line-height: 0;
+  text-transform: uppercase;
 }
 
 /* background */
@@ -63,17 +90,7 @@ div {
   margin-top: 5px;
 }
 
-#header {
-  text-align: center;
-}
-
-#header-social {
-
-}
-
 #header-internal {
-  text-transform: uppercase;
-
   padding: 10px;
   
   -webkit-border-radius: 10px;
@@ -83,9 +100,10 @@ div {
           border-radius: 10px;
 }
 
-#header-internal a {
-  color: #fff;
-  font-size: 25px;
+#header-internal li {
+  display: inline;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 
@@ -106,8 +124,6 @@ div {
 }
 
 #footer {
-  text-transform: uppercase;
-
   padding: 10px;
   
   -webkit-border-radius: 10px;
