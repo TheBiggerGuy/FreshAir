@@ -5,13 +5,15 @@
 AddHandler application/x-httpd-php53 .php
 
 # Various rewrite rules.
-#<IfModule mod_rewrite.c>
-#  RewriteEngine on
-#
-#  RewriteBase /
-#
-#  # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
-#  RewriteCond %{REQUEST_URI} !=/favicon.ico
-#  RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
-#</IfModule>
+<IfModule mod_rewrite.c>
+  RewriteEngine on
+
+  RewriteBase /
+
+  # Rewrite URLs of the form 'x' to the form 'index.php?q=x'.
+  RewriteCond %{REQUEST_URI} !=/favicon.ico
+  RewriteCond %{REQUEST_FILENAME} !-f
+  
+  RewriteRule ^(.*)$ index.php?q=$1 [L,QSA]
+</IfModule>
 

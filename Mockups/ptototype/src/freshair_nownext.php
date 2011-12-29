@@ -1,140 +1,119 @@
 <?php
+
+date_default_timezone_set('Europe/London');
+
+// Show all errors
+error_reporting(E_ALL);
+
+$url = substr($_SERVER['REQUEST_URI'], 1);
+
+include('freshair_shows.php');  // array of all shows in "$shows"
+include('freshair_events.php'); // array of all events in "$events"
+
+/**
+ * Class that finds the current show and returns nice data about it.
+ *   Currently uses arrays of data, will be changed to SQL.
+ */
+class ShowFinder {
   
-  // make cache free TODO
+  private $day = null;
+  private $time = null;
   
-  header('Cache-Control: no-cache, must-revalidate');
-  header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
-  
-  if( isset($_GET['action']) && $_GET['action'] == 'getinfo' ) {
-    header('Content-type: application/json');
+  function __construct() {
+    $this->day = strtolower(date('l')); // monday, tuedsay ....
     
-    $arr = array(
-      'status'  => 'ok',
-      'uid'     => 1,
-      'data'    => array(
-        'track'   => 'RJD2-Crumbs off the Table',
-        'now'     => array(
-          'title' => 'The Ted Mauley Show',
-          'des'   => 'Show info Show info Show info Show info Show info Show info',
-          'onat'  => array(
-            'long_' => 'Mondays 10-11am',
-            'short_'  => '10am',
-            'unix'  => '1234567890'
-          ),
-          'url'   => 'http://www.freshair.org.uk/shows/show1',
-          'img'   => 'http://d7.freshair.org.uk/sites/default/files/styles/square_thumbnail/public/Picture0001.jpg'
-        ),
-        'next'    => array(
-          'title' => 'Radioactive',
-          'des'   => 'Show info Show info Show info Show info Show info Show info',
-          'onat'  => array(
-            'long_' => 'Mondays 11-12am',
-            'short_'  => '11am',
-            'unix'  => '1234567890'
-          ),
-          'url'   => 'http://www.freshair.org.uk/shows/show2',
-          'img'   => 'http://d7.freshair.org.uk/sites/default/files/styles/square_thumbnail/public/Picture0001.jpg'
-        ),
-        'station' => 'FreshAir'
-      )
-    );
-    
-    echo json_encode($arr);
-    
-    exit;
+    $ltime = localtime();
+    $this->time = ($ltime[2] * 60 * 60) + ($ltime[1] * 60) + $ltime[0]; // seconds past in day
   }
+  
+  private function weekloop($day) {
+    if($day == 'monday') {
+      return 'tuesday';
+    } else if($day == 'tuesday') {
+      return 'wednesday';
+    } else if($day == 'wednesday') {
+      return 'thursday';
+    } else if($day == 'thursday') {
+      return 'friday';
+    } else if($day == 'friday') {
+      return 'saturday';
+    } else if($day == 'saturday') {
+      return 'sunday';
+    } else if($day == 'sunday') {
+      return 'monday';
+    } else {
+      die('error'); // TODO
+    }
+  }
+  
+  public function find($events, $shows) {
+    $event = array_filter($events[$this->day], array($this, 'finder'));
+    if( count($event) != 1 ) {
+      die("error"); // TODO
+    }
+    $eventkey = key($event); // not always index zero!
+    
+    $nowevent = $event[$eventkey];
+    $nowday = $this->day;
+    if( $nowevent['end'] == 86400) {
+      $nextday = $this->weekloop($nowday);
+      $nextevent = $events[$nextday][0];
+    } else {
+      $nextday = $nowday;
+      $nextevent = $events[$nextday][$eventkey+1];
+    }
+    
+    $nowshow  = $shows[$nowevent['show']];
+    $nextshow = $shows[$nextevent['show']];
+    
+    return array(
+	  // let the user know we didn't have any issues
+	  'status' => 'ok',
+      'now' => array(
+        'start' => $nowevent['start'],
+        'end'   => $nowevent['end'],
+        'day'   => $nowday,
+        'show'  => $nowshow['name'],
+        'url'   => $nowshow['url'],
+        'image' => 'http://static.freshair.org.uk/2011/fresher/player/shows/show_' . $nowevent['show'] . '.JPG'
+      ),
+      'next' => array(
+        'start' => $nextevent['start'],
+        'end'   => $nextevent['end'],
+        'day'   => $nextday,
+        'show'  => $nextshow['name'],
+        'url'   => $nextshow['url'],
+        'image' => 'http://static.freshair.org.uk/2011/fresher/player/shows/show_' . $nextevent['show'] . '.JPG'
+      ),
+    );
+  }
+  
+  /**
+   * Returns TRUE  if show is on now.
+   *      or FALSE if it is not
+   */
+  private function finder($show) {
+    return ( $show['start'] <= $this->time && $this->time < $show['end'] );
+  }
+}
 
-?><!DOCTYPE html>
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <title>Fresh Air - Listen Now</title>
-  
-  <!-- <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script> -->
-  <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
-  
-  <script type="text/javascript" src="live.min.js"></script>
-  
-  <link href='http://fonts.googleapis.com/css?family=PT+Sans:regular,bold&v1' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" type="text/css" href="live.css" />
-  
-</head>
+$find = new ShowFinder();
+$show = $find->find($events, $shows);
+$find = null;
 
-<body>
-  
-  <!--[if lt IE 7]>
-  <div id="warning">
-    Warning: FreshAir does not support you browser.
-      <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">Please Upgrade IE6</a>
-  </div>
-  <div style="clear: left; padding: 0px;"></div>
-  <![endif]-->
-  
-  <div id="content">
-    
-    <div id="header">
-      <div id="header-fresh">
-        <h1>Fresh<br />Air</h1>
-      </div>
-      <div id="header-player">
-        <h2>Player</h2>
-      </div>
-      <div id="header-control" class="tooltip" title="Pause" >
-        <img src="throbber.gif" alt="Loading ..." />
-      </div>
-      <div style="clear: left; padding: 0px;"></div>
-      <div id="header-subheader">
-        <h3>
-          <span id="header-subheader-title">Loading ...</span><br />
-          <span id="header-subheader-time">Loading ...</span>
-        </h3>
-        <div style="clear: both; padding: 0px;"></div>
-      </div>
-    </div>
-    
-    <div id="showinfo">
-      <img id="showinfo-img" src="throbber.gif" />
-      <p id="showinfo-des">
-        Loading ...
-      </p>
-      <p>
-        <a id="showinfo-link" href="#">Show page</a>
-      </p>
-      <div style="clear: both; padding: 0px;"></div>
-    </div>
-    
-    <div id="nowplaying">
-        Now Playing: <span id="nowplaying-title">Loading ...</span>
-    </div>
-    
-    <div id="webcams">
-      <img id="webcam1" class="webcamimg" src="http://www.freshair.org.uk/webcam/Webcam01.jpg" alt="Webcam image" />      
-      <img id="webcam2" class="webcamimg" src="http://www.freshair.org.uk/webcam/Webcam02.jpg" alt="Webcam image" />      
-      <div style="clear: both; padding: 0px;"></div>
-    </div>
-    
-    <div id="next">
-      Next- <span id="next-title">Loading ...</span> at <span id="next-time">Loading ...</span>
-    </div>
-    
-    <div id="radio">
-    </div>
-    
-    <div id="footer">
-      <div id="footer-hifi">
-        <div class="footer-item">Hi-Fi</div>
-      </div>
-      <div id="footer-lofi">
-        <div class="footer-item">Lo-Fi</div>
-      </div>
-      <div id="footer-ext">
-        <div class="footer-item">External</div>
-      </div>
-      <div style="clear: both; padding: 0px;"></div>
-    </div>
-  
-  </div>
+header('Expires: Mon, 26 Jul 1997 05:00:00 GMT'); 
+header('Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . 'GMT'); 
+header('Cache-Control: no-cache, must-revalidate'); 
+header('Pragma: no-cache');
+header('Content-type: application/json');
 
-</body>
+//var_dump($show);
+// supporting standard jsonp if used.
+if( isset($_GET['callback'])) {
+	echo $_GET['callback'].'('.json_encode($show).');';
+}
+else {
+	echo json_encode($show);
+}
 
-</html>
+?>

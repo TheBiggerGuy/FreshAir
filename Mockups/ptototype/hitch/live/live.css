@@ -1,0 +1,289 @@
+/* /////////////////////////////////////////////////////////////////////////////
+
+Copyright Guy Taylor 2011
+
+Images and Design Copyright Richard Hanrahan 2011
+
+///////////////////////////////////////////////////////////////////////////// */
+
+/*
+  * FCBE29
+  * EA6A11
+  * FFCD54
+  * FFFFFF
+  * FFDD8A
+*/
+
+body, html {
+  /* height: 440px; */
+  width: 280px;
+  
+  margin: 0px;
+  padding: 0px;
+  
+  color: #999;
+  text-align: center;
+  font-size: 0.8em;
+  font-family: Arial, Helvetica, sans-serif;
+  
+  background-color: #fff;
+  
+  overflow: hidden;
+  
+  text-transform: uppercase;
+}
+
+#content {
+  width: 250px;
+ /* changed from 400px; */
+ height: 490px;
+  
+  /* border-radius: 25px; */
+  margin: 15px;
+  
+  padding: 0px;
+  color: #999;
+  background-color: #EA6A11; /* Update jplayer as well */
+}
+
+h1, h2, h3 {
+  margin: 0px;
+  border-width: 0px;
+  padding: 0px;
+  
+  font-family: 'PT Sans', arial, serif;
+  font-weight: normal;
+}
+/* Change style link */
+h3 a, h3 a.hover, h3 a.link, h3 a.visited {
+text-decoration:none; color:#fff;}
+
+h1 {
+  font-size: 86px;
+  color: #FFFFFF
+}
+
+h2 {
+  font-size: 72px;
+}
+
+#warning {
+  background-color: #000000;
+  color: #FF0000;
+  font-size: 18px;
+  float: left
+}
+#warning a {
+  color: #FF1010;
+}
+
+#header {
+  width: 250px;
+}
+
+#header-fresh {
+  float: left;
+  
+  text-align: right;
+  letter-spacing: -8px;
+  line-height: 65px;
+  
+  width: 206px;
+  height: 130px;
+}
+
+#header-player {
+  float: right;
+  background-image: url('header-player.png');
+  background-repeat: no-repeat;
+  width: 40px;
+  height: 154px;
+  margin-top: 3px;
+}
+
+#header-player h2 {
+  display: none;
+}
+
+#header-control {
+  text-align: center;
+  
+  padding: 0px;
+  border-width: 0px;
+  
+  margin-left: 20px;
+  
+  width: 66px;
+  height: 66px;
+  
+  position: relative;
+  top: -62px;
+}
+
+#header-control img {
+  width: 66px;
+  height: 66px;
+}
+
+#header-subheader {
+  text-align: left;
+  font-size: 12px;
+  color: #FFFFFF;
+  margin-top: 12px;
+  margin-left: 5px;
+  font-weight: bold;
+  visibility: hidden; /* javascript shows it with AJAX */
+}
+
+#showinfo {
+  background-color: #FFCD54;
+  /* changed from left */
+  text-align: center;
+ /* padding-top: 5px; */
+ /* padding-bottom: 5px; */
+  color: #EA6A11;
+  visibility: hidden; /* javascript shows it with AJAX */
+}
+
+#showinfo-img {
+  width: 250px;
+  height: 160px;
+}
+
+/* Old CSS, now image bigger, centre.
+  * float: left;
+  * width: 100px;
+  * height: 55px;
+  * margin-right: 5px;
+  * margin-left: 5px;
+*/
+
+#showinfo a {
+  color: #FFFFFF;
+  font-size: 15px;
+}
+
+#nowplaying {
+  background-color: #FCBE29;
+  text-align: center;
+  margin-top: -3px;
+  /* margin-bottom: 5px; */
+  color: #000000;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+p {
+  margin: 0px;
+}
+
+.webcamimg { /* 4/3 */
+  width:125px;
+  height:94px;
+  /* width: 116px;
+  height: 87px; */
+}
+
+#webcam1 {
+  float: left;
+ /* margin-left: 4px; */
+}
+
+#webcam2 {
+  float: right;
+/*  margin-right: 4px; */
+}
+
+.webcamimg a.hover{
+background-url: url('http://static.freshair.org.uk/2011/fresher/player/webcam2.png');
+
+}
+
+#webcam1 a.hover{
+background-url: url('http://static.freshair.org.uk/2011/fresher/player/webcam2.png');
+}
+
+#next {
+  text-align: left;
+  font-size: 12px;
+  color: #FFFFFF;
+  margin: 5px;
+}
+
+#footer {
+  background-color: #fff;
+  text-align: center;
+  height: 30px;
+  font-size: 15px;
+}
+
+#footer-hifi {
+  float: left;
+  background-color: #EA6A11;
+  width: 74px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#footer-lofi {
+  float: right;
+  background-color: #EA6A11;
+  width: 74px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+
+#footer-ext {
+  background-color: #EA6A11;
+  width: 104px;
+  
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0px;
+}
+
+.footer-item {
+  background-color: #FFCD54;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 0px;
+  
+  height: 20px;
+  
+  /* border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px; */
+}
+
+#radio {
+  height: 1px;
+  padding: 0px;
+  margin: 0px;
+  border-width: 0px;
+}
+
+/* ////////////////////////////////////////////////// */
+
+/*
+.trackInfo {
+  width: 250px;
+  
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  
+  padding-left: 10px;
+  padding-right: 10px;
+  
+  text-align: left;
+  
+  background-color: #200F0C;
+}
+*/

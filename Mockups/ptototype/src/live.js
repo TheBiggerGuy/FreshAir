@@ -87,7 +87,7 @@ var AUDIO_URL_LOW  = "http://live.freshair.org.uk:3088/;";
  * @const
  * @type {string}
  */
-var AUDIO_URL_HIGH_EXT = "http://www.freshair.org.uk/dev/live.m3u";
+var AUDIO_URL_HIGH_EXT = "http://radio.freshair.org.uk/live.m3u";
 
 /**
  * Max number of chars for now playing song
@@ -97,20 +97,27 @@ var AUDIO_URL_HIGH_EXT = "http://www.freshair.org.uk/dev/live.m3u";
 var MAX_NOW_PLAYING  = 30;
 
 /**
+ * The base URL to be used
+ * @const
+ * @type {string}
+ */
+var BASE_URL = "http://radio.freshair.org.uk/";
+
+/**
  * Array of images to preload
  * @const
  */
 var IMAGES = [
-  "playbutton.png",
-  "pausebutton.png",
-  "throbber.gif"
+  BASE_URL + "playbutton.png",
+  BASE_URL + "pausebutton.png",
+  BASE_URL + "throbber.gif"
 ];
 
 /**
  * URL to Jplayer.swf. not including the filename
  * @const
  */
-var JPLAYER_SWF_URL = "http://www.freshair.org.uk/dev/";
+var JPLAYER_SWF_URL = "http://radio.freshair.org.uk/";
 
 /** @const */ var DEBUG              = true;
 /** @const */ var TIMEOUT_WEBCAM     = 7*1000
@@ -255,7 +262,7 @@ function makePlayer() {
         mp3: currentAudioURL
       });
       state = STATES.STOPED;
-      $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
+      $(CSS_PLAY_PAUSE_IMG).attr("src", BASE_URL + "playbutton.png").attr("alt", "play");
       $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
       if(autoPlay) {
         playPause();
@@ -269,7 +276,7 @@ function makePlayer() {
       if (DEBUG)
         console.info("jPlayer: error");
       //$(CSS_PLAY_PAUSE_DIV).html("Error !"); // TODO
-      $(CSS_PLAY_PAUSE_IMG).attr("src", "throbber.gif").attr("alt", "error");
+      $(CSS_PLAY_PAUSE_IMG).attr("src", BASE_URL + "throbber.gif").attr("alt", "error");
       $(CSS_PLAY_PAUSE_DIV).attr("title", "error");
       //destroyPlayer();
     },
@@ -278,7 +285,7 @@ function makePlayer() {
       if (DEBUG)
         console.info("jPlayer: play");
       state = STATES.PLAYING;
-      $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
+      $(CSS_PLAY_PAUSE_IMG).attr("src", BASE_URL + "pausebutton.png").attr("alt", "pause");
       $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
     },
     pause: function ()
@@ -286,7 +293,7 @@ function makePlayer() {
       if (DEBUG)
         console.info("jPlayer: pause");
       state = STATES.STOPED;
-      $(CSS_PLAY_PAUSE_IMG).attr("src", "playbutton.png").attr("alt", "play");
+      $(CSS_PLAY_PAUSE_IMG).attr("src", BASE_URL + "playbutton.png").attr("alt", "play");
       $(CSS_PLAY_PAUSE_DIV).attr("title", "play");
     },
     playing: function ()
@@ -294,7 +301,7 @@ function makePlayer() {
       if (DEBUG)
         console.info("jPlayer: pauseplaying");
       state = STATES.PLAYING;
-      $(CSS_PLAY_PAUSE_IMG).attr("src", "pausebutton.png").attr("alt", "pause");
+      $(CSS_PLAY_PAUSE_IMG).attr("src", BASE_URL + "pausebutton.png").attr("alt", "pause");
       $(CSS_PLAY_PAUSE_DIV).attr("title", "pause");
     },
     backgroundColor: "#EA6A11",
@@ -388,7 +395,7 @@ function updateInfo() {
   // view-source:http://live.freshair.org.uk:3066/7.html
   jQuery.ajax(
     {
-      url: "http://freshair.org.uk/dev/live.php?action=getinfo",
+      url: BASE_URL + "info",
       dataType: "json",
       success: function (data)
       {
@@ -468,7 +475,7 @@ function updateWebCamx(camNum) {
   
   d = new Date();
   //newImage.attr("src", "http://www.freshair.org.uk/webcam/Webcam0" + camNum + ".jpg?"+d.getTime());
-  $("#webcam" + camNum).attr("src", "http://www.freshair.org.uk/webcam/Webcam0" + camNum + ".jpg?"+d.getTime());
+  $("#webcam" + camNum).attr("src", "http://webcam.freshair.org.uk/" + camNum);
   
   //$("#webcam" + camNum).after(newImage);
 }
