@@ -16,6 +16,8 @@ COMPILER_SUMMARY=1
 rm -rf build
 mkdir build
 
+gjslint --strict src/live.js
+
 java -jar $CLOSURE_COMPILER \
   --compilation_level=$COMPILER_LEVEL \
   --summary_detail_level=$COMPILER_SUMMARY \
@@ -24,7 +26,8 @@ java -jar $CLOSURE_COMPILER \
   --js lib/jQuery.pulse/jquery.pulse.js \
   --js lib/jPlayer/jquery.jplayer.min.js \
   --externs lib/jQuery/jquery-1.7.extern.js \
-  --js_output_file build/live.min.js
+  --js_output_file build/live.min.js \
+  --define DEBUG
 
 cat src/live.css | java -jar $YUI_COMPRESSOR --type=css -o build/live.min.css
 

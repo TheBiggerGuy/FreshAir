@@ -3,6 +3,9 @@
   // get what page is requested
   if (isset($_GET['q'])) {
     $page = $_GET['q'];
+    if ($page == null || count($page) < 1) {
+      $page = '/';
+    }
   } else {
     $page = '/';
   }
@@ -50,7 +53,7 @@
 <?php
     exit;
   
-  } else if ($page == 'info/') {
+  } else if ($page == 'info') {
 
     // make cache free TODO
 
@@ -94,7 +97,7 @@
 
     exit;
   
-  } else if ($page == 'live/') {
+  } else if ($page == 'live') {
 
 ?><!DOCTYPE html>
 <html>
@@ -145,7 +148,7 @@
     </div>
     
     <div id="showinfo">
-      <img id="showinfo-img" src="throbber.gif" />
+      <img id="showinfo-img" src="http://radio.freshair.org.uk/throbber.gif" />
       <p id="showinfo-des">
         Loading ...
       </p>
