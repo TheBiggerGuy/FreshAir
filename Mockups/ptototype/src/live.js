@@ -1,7 +1,7 @@
 /**
  * FreshAir.org.uk Radio Player
  * ---
- * @preserve all
+ * @preserve all.
  * @author Guy Taylor (http://www.thebiggerguy.com)
  * @version 0.5
  * @updated 11-JUL-2011
@@ -109,7 +109,7 @@ var AUDIO_URL_HIGH_EXT = 'http://radio.freshair.org.uk/live.m3u';
  * @const
  * @type {number}
  */
-var MAX_NOW_PLAYING  = 30;
+var MAX_NOW_PLAYING = 30;
 
 
 /**
@@ -129,6 +129,7 @@ var IMAGES = [
   BASE_URL + 'pausebutton.png',
   BASE_URL + 'throbber.gif'
 ];
+
 
 /**
  * URL to Jplayer.swf. not including the filename
@@ -150,15 +151,16 @@ var DEBUG = true;
 
 
 // stop errors for browsers that have no debug console
-if (DEBUG){
+if (DEBUG) {
   if (!window.console) {
     console = {};
   }
-  console.log = console.log || function(){};
-  console.warn = console.warn || function(){};
-  console.error = console.error || function(){};
-  console.info = console.info || function(){};
+  console.log = console.log || function() {};
+  console.warn = console.warn || function() {};
+  console.error = console.error || function() {};
+  console.info = console.info || function() {};
 }
+
 
 /**
  * @const
@@ -185,84 +187,84 @@ $(function() { // executed when $(document).ready()
   }
 
   $(CSS_PLAY_PAUSE_IMG).hover(
-    function ()
-    {
-      $(this).stop();
-      $(this).pulse(
+      function()
       {
-        opacity: [0.5, 1]
+        $(this).stop();
+        $(this).pulse(
+            {
+              opacity: [0.5, 1]
+            },
+            {
+              duration: 500,
+              times: 999999,
+              easing: 'swing'
+            });
       },
+      function()
       {
-        duration: 500,
-        times: 999999,
-        easing: 'swing'
-      });
-    },
-    function ()
-    {
-      $(this).stop();
-      $(this).pulse(
-      {
-        opacity: [1, 0.5]
-      },
-      {
-        duration: 2000,
-        times: 999999,
-        easing: 'swing'
-      });
-    }
+        $(this).stop();
+        $(this).pulse(
+            {
+              opacity: [1, 0.5]
+            },
+            {
+              duration: 2000,
+              times: 999999,
+              easing: 'swing'
+            });
+      }
   ).trigger('mouseleave');
 
   $('.footer-item').hover(
-    function ()
-    {
-      $(this).parent().animate(
+      function()
       {
-        height: 25,
-        easing: 'swing'
-      });
-    },
-    function ()
-    {
-      $(this).parent().animate(
+        $(this).parent().animate(
+            {
+              height: 25,
+              easing: 'swing'
+            });
+      },
+      function()
       {
-        height: 20,
-        easing: 'swing'
-      });
-    }
+        $(this).parent().animate(
+            {
+              height: 20,
+              easing: 'swing'
+            });
+      }
   );
 
   $(CSS_PLAY_PAUSE_IMG).bind('click', playPause);
-  $(CSS_CHANGE_AUDIO_URL_HIGH).bind('click', function ()
-  {
-    if (currentAudioURL == AUDIO_URL_HIGH && state == STATES.PLAYING) {
-      return;
-    }
+  $(CSS_CHANGE_AUDIO_URL_HIGH).bind('click', function()
+      {
+        if (currentAudioURL == AUDIO_URL_HIGH && state == STATES.PLAYING) {
+          return;
+        }
 
-    destroyPlayer();
-    currentAudioURL = AUDIO_URL_HIGH;
-    autoPlay = true;
-    makePlayer();
-  });
-  $(CSS_CHANGE_AUDIO_URL_LOW).bind('click', function ()
-  {
-    if (currentAudioURL == AUDIO_URL_LOW && state == STATES.PLAYING) {
-      return;
-    }
+        destroyPlayer();
+        currentAudioURL = AUDIO_URL_HIGH;
+        autoPlay = true;
+        makePlayer();
+      });
+  $(CSS_CHANGE_AUDIO_URL_LOW).bind('click', function()
+      {
+        if (currentAudioURL == AUDIO_URL_LOW && state == STATES.PLAYING) {
+          return;
+        }
 
-    destroyPlayer();
-    currentAudioURL = AUDIO_URL_LOW;
-    autoPlay = true;
-    makePlayer();
-  });
-  $(CSS_CHANGE_AUDIO_URL_EXT).bind('click', function ()
-  {
-    destroyPlayer();
-    window.location = AUDIO_URL_HIGH_EXT;
-  });
+        destroyPlayer();
+        currentAudioURL = AUDIO_URL_LOW;
+        autoPlay = true;
+        makePlayer();
+      });
+  $(CSS_CHANGE_AUDIO_URL_EXT).bind('click', function()
+      {
+        destroyPlayer();
+        window.location = AUDIO_URL_HIGH_EXT;
+      });
 
   // preload images
-  for(var i in IMAGES){
+  for (var i in IMAGES) {
     (new Image).src = IMAGES[i];
   }
 
@@ -272,104 +274,104 @@ $(function() { // executed when $(document).ready()
   // start webcam feed
   setTimeout(updateWebCam1, TIMEOUT_WEBCAM);
   setTimeout(updateWebCam2, TIMEOUT_WEBCAM);
-  setTimeout(updateInfo,    TIMEOUT_INFO_INIT);
+  setTimeout(updateInfo, TIMEOUT_INFO_INIT);
 
 });
 
 function makePlayer() {
   player = $('#radio').jPlayer(
-  {
-    ready: function ()
-    {
-      if (DEBUG) {
-        console.info('jPlayer: Ready');
-      }
-      $(this).jPlayer(
-      'setMedia',
       {
-        mp3: currentAudioURL
-      });
-      state = STATES.STOPED;
-      $(CSS_PLAY_PAUSE_IMG)
+        ready: function()
+        {
+          if (DEBUG) {
+            console.info('jPlayer: Ready');
+          }
+          $(this).jPlayer(
+              'setMedia',
+              {
+                mp3: currentAudioURL
+              });
+          state = STATES.STOPED;
+          $(CSS_PLAY_PAUSE_IMG)
         .attr('src', BASE_URL + 'playbutton.png')
         .attr('alt', 'play');
-      $(CSS_PLAY_PAUSE_DIV).attr('title', 'play');
-      if(autoPlay) {
-        playPause();
-        autoPlay = false;
-      }
-    },
-    swfPath: JPLAYER_SWF_URL,
-    supplied: 'mp3',
-    error: function (error)
-    {
-      if (DEBUG)
-        console.info('jPlayer: error');
-      //$(CSS_PLAY_PAUSE_DIV).html('Error !'); // TODO
-      $(CSS_PLAY_PAUSE_IMG)
+          $(CSS_PLAY_PAUSE_DIV).attr('title', 'play');
+          if (autoPlay) {
+            playPause();
+            autoPlay = false;
+          }
+        },
+        swfPath: JPLAYER_SWF_URL,
+        supplied: 'mp3',
+        error: function(error)
+        {
+          if (DEBUG)
+            console.info('jPlayer: error');
+          //$(CSS_PLAY_PAUSE_DIV).html('Error !'); // TODO
+          $(CSS_PLAY_PAUSE_IMG)
         .attr('src', BASE_URL + 'throbber.gif')
         .attr('alt', 'error');
-      $(CSS_PLAY_PAUSE_DIV).attr('title', 'error');
-      //destroyPlayer();
-    },
-    play: function ()
-    {
-      if (DEBUG)
-        console.info('jPlayer: play');
-      state = STATES.PLAYING;
-      $(CSS_PLAY_PAUSE_IMG)
+          $(CSS_PLAY_PAUSE_DIV).attr('title', 'error');
+          //destroyPlayer();
+        },
+        play: function()
+        {
+          if (DEBUG)
+            console.info('jPlayer: play');
+          state = STATES.PLAYING;
+          $(CSS_PLAY_PAUSE_IMG)
         .attr('src', BASE_URL + 'pausebutton.png')
         .attr('alt', 'pause');
-      $(CSS_PLAY_PAUSE_DIV).attr('title', 'pause');
-    },
-    pause: function ()
-    {
-      if (DEBUG) {
-        console.info('jPlayer: pause');
-      }
-      state = STATES.STOPED;
-      $(CSS_PLAY_PAUSE_IMG)
+          $(CSS_PLAY_PAUSE_DIV).attr('title', 'pause');
+        },
+        pause: function()
+        {
+          if (DEBUG) {
+            console.info('jPlayer: pause');
+          }
+          state = STATES.STOPED;
+          $(CSS_PLAY_PAUSE_IMG)
         .attr('src', BASE_URL + 'playbutton.png')
         .attr('alt', 'play');
-      $(CSS_PLAY_PAUSE_DIV).attr('title', 'play');
-    },
-    playing: function ()
-    {
-      if (DEBUG) {
-        console.info('jPlayer: pauseplaying');
-      }
-      state = STATES.PLAYING;
-      $(CSS_PLAY_PAUSE_IMG)
+          $(CSS_PLAY_PAUSE_DIV).attr('title', 'play');
+        },
+        playing: function()
+        {
+          if (DEBUG) {
+            console.info('jPlayer: pauseplaying');
+          }
+          state = STATES.PLAYING;
+          $(CSS_PLAY_PAUSE_IMG)
         .attr('src', BASE_URL + 'pausebutton.png')
         .attr('alt', 'pause');
-      $(CSS_PLAY_PAUSE_DIV).attr('title', 'pause');
-    },
-    backgroundColor: '#EA6A11',
-    errorAlerts: false,
-    warningAlerts: false,
-    solution: 'html, flash',
-    preload: 'none',
-    cssSelector: {
-      videoPlay: '',
-      play: '',
-      pause: '',
-      stop: '',
-      seekBar: '',
-      playBar: '',
-      mute: '',
-      unmute: '',
-      volumeBar: '',
-      volumeBarValue: '',
-      currentTime: '',
-      duration: ''
-    }
-  });
+          $(CSS_PLAY_PAUSE_DIV).attr('title', 'pause');
+        },
+        backgroundColor: '#EA6A11',
+        errorAlerts: false,
+        warningAlerts: false,
+        solution: 'html, flash',
+        preload: 'none',
+        cssSelector: {
+          videoPlay: '',
+          play: '',
+          pause: '',
+          stop: '',
+          seekBar: '',
+          playBar: '',
+          mute: '',
+          unmute: '',
+          volumeBar: '',
+          volumeBarValue: '',
+          currentTime: '',
+          duration: ''
+        }
+      });
   if (DEBUG)
     console.info('makePlayer: made player');
 }
 
 function destroyPlayer() {
-  if(player != null) {
+  if (player != null) {
     /*
     try {
       player.jPlayer('pause');
@@ -423,8 +425,8 @@ function playPause(eventObject) {
     default:
       if (DEBUG)
         console.info('playPause: Unknown !');
-      destroyPlayer()
-      makePlayer()
+      destroyPlayer();
+      makePlayer();
       break;
   }
 }
@@ -436,47 +438,47 @@ function updateInfo() {
     console.info('updateInfo:');
   // view-source:http://live.freshair.org.uk:3066/7.html
   jQuery.ajax(
-    {
-      url: BASE_URL + 'info',
-      dataType: 'json',
-      success: function (data)
       {
-        if (DEBUG)
-          console.info('updateInfo: ' + data.status);
+        url: BASE_URL + 'info',
+        dataType: 'json',
+        success: function(data)
+        {
+          if (DEBUG)
+            console.info('updateInfo: ' + data.status);
 
-        if(data.status != 'ok')
-          return;
+          if (data.status != 'ok')
+            return;
 
-        var json = data.data;
-        var now  = json.now;
-        var next = json.next;
+          var json = data.data;
+          var now = json.now;
+          var next = json.next;
 
-        // preload images as fast as possible
-        (new Image).src = now.img;
-        (new Image).src = next.img;
+          // preload images as fast as possible
+          (new Image).src = now.img;
+          (new Image).src = next.img;
 
-        if(json.track.length > MAX_NOW_PLAYING)
-          json.track = json.track.substring(0, 11) + '...';
+          if (json.track.length > MAX_NOW_PLAYING)
+            json.track = json.track.substring(0, 11) + '...';
 
-        $('#nowplaying-title').html(json.track);
+          $('#nowplaying-title').html(json.track);
 
-        $('#header-subheader-title').html(now.title);
-        $('#header-subheader-time' ).html(now.onat.long_);
-        $('#header-subheader').css('visibility', 'visible');
+          $('#header-subheader-title').html(now.title);
+          $('#header-subheader-time').html(now.onat.long_);
+          $('#header-subheader').css('visibility', 'visible');
 
-        $('#showinfo-des').html(now.des);
-        $('#showinfo-img').attr('src', now.img);
-        $('#showinfo').css('visibility', 'visible');
+          $('#showinfo-des').html(now.des);
+          $('#showinfo-img').attr('src', now.img);
+          $('#showinfo').css('visibility', 'visible');
 
-        $('#next-title').html(next.title);
-        $('#next-time').html(next.onat.short_);
-        $('#next').css('visibility', 'visible');
-      },
-      complete: function ()
-      {
-        setTimeout(updateInfo, TIMEOUT_INFO);
+          $('#next-title').html(next.title);
+          $('#next-time').html(next.onat.short_);
+          $('#next').css('visibility', 'visible');
+        },
+        complete: function()
+        {
+          setTimeout(updateInfo, TIMEOUT_INFO);
+        }
       }
-    }
   );
 }
 
