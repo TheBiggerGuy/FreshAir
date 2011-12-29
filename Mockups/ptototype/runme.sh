@@ -26,11 +26,11 @@ java -jar $CLOSURE_COMPILER \
 
 cp src/index.html src/live.css src/live.php build
 cp src/freshair_events.php src/freshair_shows.php src/freshair_nownext.php build
+cp src/htaccess build/.htaccess
 cp lib/jQuery/jquery-1.7.1.min.js build
 cp lib/jPlayer/Jplayer.swf build
 
-
-scp build/* ssh://freshair.web/home/freshair/public_html/radio.freshair.org.uk/
+scp build/* freshair.web:/home/freshair/public_html/radio.freshair.org.uk/
 
 #java -jar compiler.jar  --compilation_level=ADVANCED_OPTIMIZATIONS --js ../live.js --js jquery.pulse.js --js jquery.jplayer.js --js jquery-1.6.2.js --js_output_file  ../live.jquery.min.js
 
