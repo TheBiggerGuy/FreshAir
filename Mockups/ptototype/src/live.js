@@ -1,36 +1,29 @@
 /**
- * FreshAir.org.uk Radio Player
- * ---
- * @preserve all.
- * @author Guy Taylor (http://www.thebiggerguy.com)
- * @version 0.5
- * @updated 11-JUL-2011
+ * @preserve FreshAir.org.uk Radio Player.
+ * @author guy@thebiggerguy.com (Guy Taylor)
+ * @version 0.6
+ * @updated 29-DEC-2011
  * @created 08-JUL-2011
- * Images and Design Copyright 2011, Richard Hanrahan
- *
+ * -----------------------------------------------------------------------------
  * Copyright (c) 2011 Guy Taylor (http://www.thebiggerguy.com)
  * Dual licensed under the MIT and GPL licenses.
  *  - http://www.opensource.org/licenses/mit-license.php
  *  - http://www.gnu.org/copyleft/gpl.html
- * ---
+ * -----------------------------------------------------------------------------
  * Includes jquery.pulse.js (version 0.1 16-DEC-09)
  * https://github.com/jamespadolsey/jQuery-Plugins/tree/master/pulse
  * Copyright (c) 210 James Padolsey (http://james.padolsey.com)
  * Dual licensed under the MIT and GPL licenses.
  *   - http://www.opensource.org/licenses/mit-license.php
  *   - http://www.gnu.org/copyleft/gpl.html
- * ---
- */
-
-// Adding jplayer will cause an uknow error !!!
-/*
+ * -----------------------------------------------------------------------------
  * Includes jquery.jplayer.js (version 2.0.0 20-DEC-10)
  * http://www.happyworm.com/jquery/jplayer
  * Copyright (c) 2009 - 2010 Happyworm Ltd
  * Dual licensed under the MIT and GPL licenses.
  *  - http://www.opensource.org/licenses/mit-license.php
  *  - http://www.gnu.org/copyleft/gpl.html
- * ---
+ * -----------------------------------------------------------------------------
  */
 
 
@@ -75,6 +68,14 @@ var CSS_CHANGE_AUDIO_URL_EXT = '#footer-ext';
 
 
 /**
+ * The base URL to be used
+ * @const
+ * @type {string}
+ */
+var BASE_URL = 'http://radio.freshair.org.uk/';
+
+
+/**
  * The URL the high quaility audio stream
  * 'http://live.freshair.org.uk:3066/;'
  * or
@@ -101,7 +102,7 @@ var AUDIO_URL_LOW = 'http://stream0.freshair.org.uk:3088/;';
  * @const
  * @type {string}
  */
-var AUDIO_URL_HIGH_EXT = 'http://radio.freshair.org.uk/live.m3u';
+var AUDIO_URL_HIGH_EXT = BASE_URL + 'live.m3u';
 
 
 /**
@@ -110,14 +111,6 @@ var AUDIO_URL_HIGH_EXT = 'http://radio.freshair.org.uk/live.m3u';
  * @type {number}
  */
 var MAX_NOW_PLAYING = 30;
-
-
-/**
- * The base URL to be used
- * @const
- * @type {string}
- */
-var BASE_URL = 'http://radio.freshair.org.uk/';
 
 
 /**
@@ -135,12 +128,12 @@ var IMAGES = [
  * URL to Jplayer.swf. not including the filename
  * @const
  */
-var JPLAYER_SWF_URL = 'http://radio.freshair.org.uk/';
+var JPLAYER_SWF_URL = BASE_URL;
 
 
 /**
  * Are we in debug mode (prints to the console)
- * @define {boolean}
+ * @define {boolean} Enable Debug?
  */
 var DEBUG = true;
 
@@ -155,10 +148,14 @@ if (DEBUG) {
   if (!window.console) {
     console = {};
   }
-  console.log = console.log || function() {};
-  console.warn = console.warn || function() {};
-  console.error = console.error || function() {};
+  /** Debug at level 'info' */
   console.info = console.info || function() {};
+  /** Debug at level 'log' */
+  console.log = console.log || function() {};
+  /** Debug at level 'warn' */
+  console.warn = console.warn || function() {};
+  /** Debug at level 'error' */
+  console.error = console.error || function() {};
 }
 
 

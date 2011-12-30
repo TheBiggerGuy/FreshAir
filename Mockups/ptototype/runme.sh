@@ -16,7 +16,7 @@ COMPILER_SUMMARY=1
 rm -rf build
 mkdir build
 
-gjslint --strict src/live.js
+gjslint --strict --custom_jsdoc_tags="version,updated,created" src/live.js
 
 java -jar $CLOSURE_COMPILER \
   --compilation_level=$COMPILER_LEVEL \
@@ -25,13 +25,14 @@ java -jar $CLOSURE_COMPILER \
   --js src/live.js \
   --js lib/jQuery.pulse/jquery.pulse.js \
   --js lib/jPlayer/jquery.jplayer.min.js \
-  --externs lib/jQuery/jquery-1.7.extern.js \
+  --externs lib/Closure_Compiler/jquery-1.7.js \
+  --externs lib/Closure_Compiler/webkit_console.js \
   --js_output_file build/live.min.js \
   --define DEBUG
 
 cat src/live.css | java -jar $YUI_COMPRESSOR --type=css -o build/live.min.css
 
-cp src/index.php build
+cp src/*.php build
 cp src/freshair_events.php src/freshair_shows.php src/freshair_nownext.php build
 cp src/htaccess build/.htaccess
 cp lib/jQuery/jquery-1.7.1.min.js build
